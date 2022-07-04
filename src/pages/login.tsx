@@ -16,7 +16,7 @@ const Login: React.FC = () => {
         <IonInput class="input1" placeholder="password"/>
       
         <p>Forgot Password?</p>
-       <IonButton expand="full" shape="round" color='biscuit' id='signin'>sign In</IonButton>
+       <IonButton expand="full" href='dashboard' shape="round" color='biscuit' id='signin'>sign In</IonButton>
         <p>Don't have an account?Sign Up</p>
 
         <p>----Or sign in with----</p>
