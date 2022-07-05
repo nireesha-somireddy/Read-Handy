@@ -1,0 +1,21 @@
+#create{
+   margin-top: 35px;
+    text-align: center;
+    color:rgb(255, 254, 254);
+}
+
+.ion-content {
+    --background-color:rgb(248, 193, 193);
+    height: 69vh!important;
+  }
+
+  .card{
+    -background:transparent;
+     box-shadow: none;
+    -webkit-box-shadow: none;
+    background-color:  rgb(253, 207, 207);
+  }
+
+  #text{
+    margin-top: 20px;
+  }

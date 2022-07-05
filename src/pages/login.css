@@ -1,7 +1,7 @@
 #txt {
     color:black;
     font-size: 25px;
-    margin-top: 70px;
+    margin-top: 35px;
     text-align: center;
  }
 
@@ -11,7 +11,7 @@
     border-radius: 10px;
     padding:20px;
     margin-top: 30px;
-    background-color:rgb(247, 232, 232); 
+    background-color:rgb(255, 221, 220); 
     color:black;
 }
 .input1{
@@ -20,21 +20,38 @@
     border-radius: 15px;
     padding:40px;
     margin-top: 20px;
-    background-color:rgb(247, 232, 232); 
+    background-color:rgb(255, 221, 220); 
     color:black;
 }
 #signin{
-    margin-top: 80px;
+    margin-top: 30px;
 }
 #btnf{
-    margin-top: 120px;
+    margin-top: 20px;
     border-radius: 40px;
     margin-left: 10px;
 }
 #btng{
-    margin-top: 120px;
+    margin-top: 20px;
     border-radius: 40px;
     background-color:rgb(247, 232, 232); 
     color:black;
 
+}
+#txt2 {
+    color:black;
+    font-size: 15px;
+    margin-top: 40px;
+    text-align: center;
+ }
+ .card2{
+    -background:transparent;
+    background-color:  rgb(253, 207, 207);
+    box-shadow: none;
+   -webkit-box-shadow: none;
+ }
+ .ion-content {
+
+    --background: rgb(253, 207, 207);
+    text-align: left;
 }
