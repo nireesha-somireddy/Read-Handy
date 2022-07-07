@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Read Handy</string>
+    <string name="title_activity_main">Read Handy</string>
+    <string name="package_name">com.readhandy.app</string>
+    <string name="custom_url_scheme">com.readhandy.app</string>
+</resources>

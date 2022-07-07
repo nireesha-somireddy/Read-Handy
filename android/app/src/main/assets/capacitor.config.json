@@ -1,0 +1,6 @@
+{
+	"appId": "com.readhandy.app",
+	"appName": "Read Handy",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

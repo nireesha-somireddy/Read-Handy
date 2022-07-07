@@ -1,21 +1,33 @@
-#create{
-   margin-top: 35px;
-    text-align: center;
-    color:rgb(255, 254, 254);
+#crt-new-acc{
+  color: rgb(235, 69, 105);
+  font-size: 25px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 140px;;
+  display: flex;
+}
+#create {
+  justify-content: center;
+  color: rgb(255, 254, 254);
+  margin: auto;
+  margin-top: 40px;
+  display: flex;
+  width: 190px;
 }
 
-.ion-content {
-    --background-color:rgb(248, 193, 193);
-    height: 69vh!important;
-  }
+.account {
+ margin: auto;
+ display: flex;
+ margin-top: 30px;
+ margin-left: 20px;;
+}
 
-  .card{
-    -background:transparent;
-     box-shadow: none;
-    -webkit-box-shadow: none;
-    background-color:  rgb(253, 207, 207);
-  }
+.input-user{
+  color:black;
+  display: flex;
+  margin: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
-  #text{
-    margin-top: 20px;
-  }
+
