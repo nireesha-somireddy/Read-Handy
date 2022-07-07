@@ -8,8 +8,8 @@
 }
 
 .dimg {
-    width: 190px;
-    height: 120px;
+    width: 170px;
+    height: 128px;
 }
 
 .d {
@@ -18,8 +18,9 @@
 }
 
 .limg {
-    width: 131px;
-    height: 131px;
+    width: 150px;
+    height: 150px;
+  
 }
 
 .ctech {
@@ -27,6 +28,7 @@
     height: 80px;
     margin-top: 9px;
     border-radius: 5px;
+  
 }
 
 .cfashion {
@@ -51,27 +53,47 @@
     height: 80px;
 }
 
-.psimg {
+/* .pimg {
     width: 160px;
     height: 100px;
-}
+} */
 
 #font {
-    color: rgb(3, 3, 70);
+    color: rgb(235, 69, 105);
     text-align: left;
 }
 
 #cr {
-    margin-top: 28px;
+    margin-top: 18px;
     text-align: left;
     font-size: 15px;
+    margin-left: 20px;
 }
 
 .ion-content {
-
     --background: rgb(253, 207, 207);
-    text-align: left;
-    color:black;
+    color: black;
     height: 69vh !important;
+}
+
+#article{
+    color: rgb(235, 69, 105);
+    font-size: 25px;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#bar{
+    margin: auto;
+    display: flex;
+    margin-left: 20px;
+}
+
+#logout{
+     margin: auto;
+    display: flex;
+    margin-top:50px;
 
 }
