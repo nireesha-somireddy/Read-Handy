@@ -7,27 +7,12 @@ import { Link } from "react-router-dom";
 import './signup.css';
 import { toastController,  } from "@ionic/core";
 
-
-const presentAlert= async (err) => {
-  const toast = await toastController.create({
-    color: "light",
-    position: "top",
-    duration: 3000,
-    message: err,
-    translucent: false,
-    showCloseButton: true,
-  });
-
-  await toast.present();
-
-};
-
 const Signup = () => {
   const [user, setUser] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmpassword, setConfirmPassword] = useState('');
+  const [repeatpassword, setRepeatPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [PassswordError, setPasswordError] = useState('');
   const [mobileError, setmobileError] = useState('');
@@ -39,6 +24,7 @@ const Signup = () => {
     setName('');
     setEmail('');
     setPassword('');
+    setRepeatPassword('');
   }
   const clearErrors = () => {
     setEmailError('');
@@ -61,21 +47,37 @@ const Signup = () => {
   }, []);
   const handleToast = (err) => {
      present({
-      
       message: err,
-      buttons:["OK"],
       backdropDismiss:true,
       transculent:true,
       animated:true,
       cssClass:"lp-alert",
       position: "top",
-      color: "light",
+      color: "dark",
     });
   };
 
-
   const handleSignup=()=>{
     clearErrors();
+    if(email == null || email ===""){
+      const msg = "please enter your email";
+      handleToast(msg);
+    }else if (password == null || password ==="") {
+      const msg = "please enter your password";
+      handleToast(msg);
+    }else if (password === repeatpassword) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password, repeatpassword)
+        .then(() => {
+          router.push("/dashboard");
+        })
+        .then(() => {
+          handleToast(" You have Registered successfully");
+        })
+
+
+
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() => { router.push("/login") }).then(() => {
 
       handleToast(" Account successfully Created");
@@ -91,14 +93,12 @@ const Signup = () => {
           case "auth/weak-password":
             setPasswordError(err.message);
             break;
-          case "auth/phone-number-already-exists":
-            setmobileError(err.msg);
-            break;
           }
 
         },  );
 
         clearInputs();
+      }
     };
     
   return (
@@ -119,7 +119,11 @@ const Signup = () => {
           <IonLabel className="errorMsg">{emailError}</IonLabel>
           </IonRow>
           <IonRow className='input-user'>
-          <IonInput class="input" type="password" placeholder="password" value={password} onIonChange={(e) => setPassword(e.detail.value)} />
+          <IonInput class="input" type="password" placeholder="Password" value={password} onIonChange={(e) => setPassword(e.detail.value)} />
+          <IonLabel className="errorMsg">{PassswordError}</IonLabel>
+           </IonRow>
+           <IonRow className='input-user'>
+          <IonInput class="input" type="password" placeholder="Repeat password" value={repeatpassword} onIonChange={(e) => setRepeatPassword(e.detail.value)} />
           <IonLabel className="errorMsg">{PassswordError}</IonLabel>
            </IonRow>
            <IonRow >

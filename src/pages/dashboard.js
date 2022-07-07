@@ -26,7 +26,7 @@ const Dashboard = () => {
      position:"top",
      animated:true,
      duration:2000,
-     color:"light",
+     color:"dark",
      model:"ios",
      icon: alert,
   

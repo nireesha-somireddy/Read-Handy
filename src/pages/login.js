@@ -8,10 +8,6 @@ import { signInWithGoogle, sigInWithFacebook } from '../firebase';
 import { toastController } from "@ionic/core";
 
 
-
-
-
-
 const Login = () => {
   const [user,setUser]=useState('');
   const [email, setEmail] = useState('');
@@ -19,29 +15,18 @@ const Login = () => {
   const [emailError, setEmailError] = useState('');
   const [PassswordError, setPasswordError] = useState('');
   const [presentAlert] = useIonAlert();
-  let router = useIonRouter();
   const [present] = useIonToast();
-const handleToast = (err)=>{
-  present({
-   message:err,
-   position:"top",
-   animated:true,
-   duration:2000,
-   color:"light",
-   model:"ios",
-   icon: alert,
-
-  })
-}
+  let router = useIonRouter();
 
   const clearInputs = () => {
     setEmail('');
     setPassword('');
-  }
+  };
   const clearErrors = () => {
     setEmailError('');
     setPasswordError('');
   };
+
   const authlistener = () => {
     firebase.auth().onAuthStateChanged((email) => {
       if (email) {
@@ -70,23 +55,37 @@ const handleToast = (err)=>{
     });
   };
 
-
+   const handleToast = (err)=>{
+  present({
+   message:err,
+   position:"top",
+   animated:true,
+   duration:2000,
+   color:"dark",
+   model:"ios",
+   icon: alert,
+  })
+   }
    const handlelogin=()=>{
     clearErrors();
-  
-   
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => { router.push("/dashboard") }) .then(() => {
-
-     handleToast("logged successfully");
-     
-
-    })
-
+    if(email == null || email ===""){
+      const msg = "Please enter your email";
+      handleToast(msg);
+    }else if (password == null || password ==="") {
+      const msg = "Please enter your password";
+      handleToast(msg);
+    }else{
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        router.push("/dashboard");
+      })
+      .then(() => {
+        handleToast(" You have login successfully");
+      })
 
       .catch((err) => {
-
         switch (err.code) {
           case "auth/invalid-email":
           case "auth/user-disabled":
@@ -95,12 +94,10 @@ const handleToast = (err)=>{
             break;
           case "auth/wrong-password":
             setPasswordError(err.message);
-            handleAlert(err.message)
-
             break;
         }
-      },  );
-
+      });
+    }
       clearInputs();
     };
 
@@ -116,8 +113,6 @@ const handleToast = (err)=>{
           <IonRow>
            <h1 id='txt-wel-back'><b> Welcome </b></h1>
           </IonRow>
-          
-    
          <IonRow className='input-login'>
           <IonInput class="input" value={email}  placeholder="Enter your Email" onIonChange={(e) => setEmail(e.detail.value)} />
           <IonLabel className="errorMsg"> {emailError}</IonLabel>
