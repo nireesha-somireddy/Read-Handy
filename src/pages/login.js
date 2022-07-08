@@ -1,4 +1,5 @@
-import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonCard, IonLabel, useIonRouter, IonGrid, IonRow, IonCol, IonImg, useIonAlert, useIonToast } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonCard, IonLabel, useIonRouter, IonGrid, IonRow, IonIcon, IonImg, useIonAlert, useIonToast } from '@ionic/react';
+import {logoFacebook} from 'ionicons/icons';
 import { Link } from "react-router-dom";
 import ExploreContainer from '../components/ExploreContainer';
 import firebase from 'firebase/compat/app';
@@ -110,6 +111,10 @@ const Login = () => {
         </IonHeader>
         <ExploreContainer />
         <IonGrid>
+        <IonRow>
+        <IonImg src="../assets/suplogo.jpg" className='logo-cls-signin
+        '>{" "}</IonImg>
+        </IonRow>
           <IonRow>
            <h1 id='txt-wel-back'><b> Welcome </b></h1>
           </IonRow>
@@ -136,15 +141,8 @@ const Login = () => {
           </IonRow>
           
           <IonRow>
-            <IonCol size='5'>
-          <IonButton shape="round" color='danger' id='btnf'>Facebook</IonButton>
-          </IonCol>
-          <IonCol>
-            
-          </IonCol>
-          <IonCol size='5'>
-          <IonButton shape="round" color="danger" id='btng'>Google</IonButton>
-          </IonCol>
+        <IonIcon icon={logoFacebook}> </IonIcon>
+       
           </IonRow>
         
         </IonGrid>

@@ -25,13 +25,13 @@
     margin:auto;
     color: white;
     font-size: 25px;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 .title{
     display: flex;
     justify-content: center;
     margin:auto;
-    font-size: 32px;
+    font-size: 33px;
     font-weight: 500;
     color: white;
 }
@@ -41,7 +41,7 @@
     margin: auto;
     display: flex;
     -background: transparent;
-    background-color: rgba(37, 37, 37, 0.699);
+    background-color:  #222428;
     box-shadow: none;
     -webkit-box-shadow: none;
 }

@@ -3,14 +3,13 @@
   font-size: 25px;
   justify-content: center;
   margin: auto;
-  margin-top: 110px;;
   display: flex;
 }
 #create {
   justify-content: center;
   color: rgb(255, 254, 254);
   margin: auto;
-  margin-top: 40px;
+  margin-top: 35px;
   display: flex;
   width: 190px;
 }
@@ -19,7 +18,7 @@
  margin: auto;
  display: flex;
  margin-top: 30px;
- margin-left: 20px;;
+ font-size: 15px;
 }
 
 .input-user{
@@ -29,5 +28,17 @@
   margin-left: 20px;
   margin-right: 20px;
 }
-
+.logo-cls{
+  margin: auto;
+  display: flex;
+  width: 110px;
+ margin-top: 50px;
+ margin-bottom: 30px;
+}
+#si-link{
+  color: rgb(235, 69, 105);
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 17px;
+}
 

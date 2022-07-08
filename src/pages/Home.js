@@ -10,19 +10,17 @@ const Home = () => {
         </IonHeader>
         <ExploreContainer />
         <IonGrid>
-       <IonRow>
+        <IonRow>
         <IonCard className='card'>
-       <IonImg src="../assets/logo-removebg-preview.png" className="homeimg">{" "}</IonImg>
-       </IonCard>
-       </IonRow>
-       <IonRow className='title'> Read Handy </IonRow>
-       <IonRow>
+        <IonImg src="../assets/logo-removebg-preview.png" className="homeimg">{" "}</IonImg>
+        </IonCard>
+        </IonRow>
+        <IonRow className='title'> Read Handy </IonRow>
+        <IonRow>
              <h1 className='wel'>Welcome </h1>
        </IonRow>
       <IonRow>
-     
        <IonButton  routerLink='/login'  id="btn1" color="danger" align='center'>Get Started</IonButton>
-
        </IonRow>
        </IonGrid>
       </IonContent>

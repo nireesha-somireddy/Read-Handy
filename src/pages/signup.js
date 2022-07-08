@@ -1,7 +1,6 @@
-import { IonContent, IonHeader, IonPage, useIonAlert, useIonToast, IonInput,IonGrid,IonRow, IonCol, IonButton, IonCard, IonLabel, useIonRouter} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonImg, useIonAlert, useIonToast, IonInput,IonGrid,IonRow, IonCol, IonButton, IonCard, IonLabel, useIonRouter} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import { useState, useEffect } from "react";
-
 import firebase from 'firebase/compat/app';
 import { Link } from "react-router-dom";
 import './signup.css';
@@ -17,7 +16,6 @@ const Signup = () => {
   const [PassswordError, setPasswordError] = useState('');
   const [mobileError, setmobileError] = useState('');
   const [present]=useIonToast();
-  // const [hasAccount, setHasAccount] = useState(false);
   let router = useIonRouter();
 
   const clearInputs = () => {
@@ -108,6 +106,9 @@ const Signup = () => {
         </IonHeader>
         <ExploreContainer />
         <IonGrid>
+        <IonRow>
+        <IonImg src="../assets/suplogo.jpg" className='logo-cls'>{" "}</IonImg>
+        </IonRow>
           <IonRow>
             <h1 id='crt-new-acc'><b> Create new account</b></h1>
            </IonRow>
@@ -130,7 +131,7 @@ const Signup = () => {
           <IonButton onClick={handleSignup} color='danger'  id='create'> Create Account</IonButton><br />
           </IonRow>
           <IonRow>
-          <IonLabel className='account' >Have an account?&nbsp; <Link to='/login'>Sign In </Link></IonLabel>
+          <IonLabel className='account' >Have an account?&nbsp; <Link to='/login' id='si-link'>Sign In </Link></IonLabel>
           </IonRow>
         </IonGrid>
       </IonContent>
