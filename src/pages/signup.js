@@ -1,12 +1,14 @@
-import { IonContent, IonHeader, IonPage, IonImg, useIonAlert, useIonToast, IonInput,IonGrid,IonRow, IonCol, IonButton, IonCard, IonLabel, useIonRouter} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonImg, useIonAlert,IonLoading, useIonToast, IonInput,IonGrid,IonRow, IonCol, IonButton, IonCard, IonLabel, useIonRouter} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import { useState, useEffect } from "react";
+import { signInWithGoogle, sigInWithFacebook } from '../firebase';
 import firebase from 'firebase/compat/app';
 import { Link } from "react-router-dom";
 import './signup.css';
 import { toastController,  } from "@ionic/core";
 
 const Signup = () => {
+
   const [user, setUser] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,6 +17,7 @@ const Signup = () => {
   const [emailError, setEmailError] = useState('');
   const [PassswordError, setPasswordError] = useState('');
   const [mobileError, setmobileError] = useState('');
+  const [showLoading, setShowLoading] = useState(false);
   const [present]=useIonToast();
   let router = useIonRouter();
 
@@ -64,6 +67,7 @@ const Signup = () => {
       const msg = "please enter your password";
       handleToast(msg);
     }else if (password === repeatpassword) {
+      setShowLoading(true);
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password, repeatpassword)
@@ -71,6 +75,7 @@ const Signup = () => {
           router.push("/dashboard");
         })
         .then(() => {
+          setShowLoading(false);
           handleToast(" You have Registered successfully");
         })
 
@@ -129,6 +134,7 @@ const Signup = () => {
            </IonRow>
            <IonRow >
           <IonButton onClick={handleSignup} color='danger'  id='create'> Create Account</IonButton><br />
+        
           </IonRow>
           <IonRow>
           <IonLabel className='account' >Have an account?&nbsp; <Link to='/login' id='si-link'>Sign In </Link></IonLabel>

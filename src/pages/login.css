@@ -13,7 +13,7 @@
     border: solid 1px rgb(168, 164, 164);
     border-radius: 10px;
     padding: 20px;
-    margin-top: 25px;
+    margin-top: 10px;
     background-color: white;
     color: black;
     display: flex;
@@ -34,11 +34,12 @@
     display: flex;
     width: 200px;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 18px;
     justify-content: center;
     color: rgb(255, 254, 254);
+  }
  
-}
+
 
 #btnf {
     margin-top: 20px;
@@ -66,7 +67,7 @@
     font-size: 15px;
     display: flex;
     margin: auto;
-    margin-top: 70px;
+    margin-top: 30px;
 }
 
 .input-login{
@@ -75,7 +76,7 @@
     margin: auto;
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 10px ;
+    margin-top: 5px ;
 }
 
 
@@ -123,6 +124,28 @@
     margin: auto;
     display: flex;
     width: 110px;
-   margin-top: 50px;
-   margin-bottom: 30px;
+   margin-top: 60px;
+   margin-bottom: 25px;
+}
+#si-in-link{
+    color: rgb(235, 69, 105);
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 17px;
+}
+#icon-f{
+    color: rgb(235, 69, 105);
+    display: flex;
+    margin: auto;
+    font-size: 40px;
+    margin-right: 10px;
+    margin-top: 30px;
+    
+}
+#icon-g{
+    color: rgb(235, 69, 105);
+    display: flex;
+    margin: auto;
+    font-size: 40px;
+    margin-top: 30px;
 }

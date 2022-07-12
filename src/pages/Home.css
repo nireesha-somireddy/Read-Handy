@@ -14,10 +14,11 @@
 }
 
 .homeimg{
-    margin:auto;
-    size: 100px!important;
-    width: 500px!important;
-    height: 500px;
+    margin: auto;
+    display: flex;
+    width: 165px;
+   margin-top: 180px;
+   margin-bottom: 10px;
 }
 .wel{
     display: flex;
@@ -35,13 +36,4 @@
     font-weight: 500;
     color: white;
 }
-.card{
-    width: 320px;
-    height: 320px;
-    margin: auto;
-    display: flex;
-    -background: transparent;
-    background-color:  #222428;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-}
+

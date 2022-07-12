@@ -1,5 +1,5 @@
-import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonCard, IonLabel, useIonRouter, IonGrid, IonRow, IonIcon, IonImg, useIonAlert, useIonToast } from '@ionic/react';
-import {logoFacebook} from 'ionicons/icons';
+import { IonContent, IonHeader, IonPage, IonInput, IonButton,IonLoading , IonCard, IonLabel, useIonRouter, IonGrid, IonRow, IonIcon, IonImg, useIonAlert, useIonToast } from '@ionic/react';
+import {logoFacebook, logoGoogle} from 'ionicons/icons';
 import { Link } from "react-router-dom";
 import ExploreContainer from '../components/ExploreContainer';
 import firebase from 'firebase/compat/app';
@@ -17,8 +17,9 @@ const Login = () => {
   const [PassswordError, setPasswordError] = useState('');
   const [presentAlert] = useIonAlert();
   const [present] = useIonToast();
-  let router = useIonRouter();
+  const [showLoading, setShowLoading] = useState(false);
 
+  let router = useIonRouter();
   const clearInputs = () => {
     setEmail('');
     setPassword('');
@@ -76,13 +77,16 @@ const Login = () => {
       const msg = "Please enter your password";
       handleToast(msg);
     }else{
+      setShowLoading(true);
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
+        setShowLoading(false);
         router.push("/dashboard");
       })
       .then(() => {
+        
         handleToast(" You have login successfully");
       })
 
@@ -102,7 +106,9 @@ const Login = () => {
       clearInputs();
     };
 
-
+    if(showLoading){
+      return <IonLoading  isOpen/>
+     }
 
   return (
     <IonPage >
@@ -133,7 +139,7 @@ const Login = () => {
           <IonButton expand="full" color='danger' id='signin' onClick={handlelogin} >sign In</IonButton><br/>
           </IonRow>
           <IonRow>
-           <IonLabel id='text'>If you are new? &nbsp;<Link to='/signup'>Sign Up</Link></IonLabel>
+           <IonLabel id='text'>If you are new? &nbsp;<Link id='si-in-link' onClick={clearInputs} to='/signup'>Sign Up</Link></IonLabel>
            </IonRow>
         
           <IonRow>
@@ -141,7 +147,8 @@ const Login = () => {
           </IonRow>
           
           <IonRow>
-        <IonIcon icon={logoFacebook}> </IonIcon>
+           <IonIcon icon={logoFacebook} id='icon-f' onClick={sigInWithFacebook}> </IonIcon>
+           <IonIcon icon={logoGoogle} onClick={signInWithGoogle} id='icon-g'> </IonIcon>
        
           </IonRow>
         
