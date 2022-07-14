@@ -1,10 +1,9 @@
-import { IonContent, IonHeader, IonPage, IonButton, IonGrid,IonImg,IonLoading, IonCard, IonRow, IonCol} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonButton, IonGrid,IonImg,useIonLoading, IonCard, IonRow, IonCol} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
-import React, {useState} from "react";
+
 import './Home.css';
 
 const Home = () => {
-  const [showLoading, setShowLoading] = useState(true);
 
   return (
     <IonPage>
@@ -21,13 +20,7 @@ const Home = () => {
              <h1 className='wel'>Welcome </h1>
        </IonRow>
       <IonRow>
-       <IonButton  routerLink='/login'  id="btn1" color="danger" align='center' onClick={() => setShowLoading(true)}>Get Started</IonButton>
-       <IonLoading
-        isOpen={showLoading}
-        onDidDismiss={() => setShowLoading(false)}
-        message={'Loading...'}
-        duration={1000}
-      />
+       <IonButton  routerLink='/login'  id="btn1" color="danger" align='center'>Get Started</IonButton>
        </IonRow>
        </IonGrid>
       </IonContent>

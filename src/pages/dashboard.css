@@ -1,62 +1,27 @@
 .design {
-    color: aliceblue;
-    width: 140px;
-    height: 120px;
+    -background:transparent!important;
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important;
     border-radius: 10px;
-    margin-top: 3px;
-
+    display: flex; 
+    margin: auto;
+    background-color:  #222428;  
 }
-
-.dimg {
-    width: 170px;
-    height: 128px;
-}
-
-.d {
-    display: flex;
-    position: relative;
-}
-
-.limg {
-    width: 150px;
-    height: 150px;
-  
-}
-
-.ctech {
-    width: 110px;
-    height: 80px;
-    margin-top: 9px;
-    border-radius: 5px;
-  
-}
-
 .cfashion {
-    width: 110px;
-    height: 80px;
-    margin-top: 1px;
-    border-radius: 5px;
+    -background:transparent!important;
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important; 
+    border-radius: 10px;
+    display: flex;
+    margin: auto; 
+    background-color:  #222428; 
+    margin-left: 20px; 
 }
-
-.timg {
-    width: 160px;
-    height: 100px;
+.dimg {
+  margin: auto;
+    border-radius: 10px;
+    display: flex;   
 }
-
-.fimg {
-    width: 143px;
-    height: 80px;
-}
-
-.simg {
-    width: 116px;
-    height: 80px;
-}
-
-/* .pimg {
-    width: 160px;
-    height: 100px;
-} */
 
 #font {
     color: rgb(235, 69, 105);
@@ -89,11 +54,26 @@
     margin: auto;
     display: flex;
     margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 #logout{
      margin: auto;
     display: flex;
-    margin-top:50px;
+margin-right: 20px;
+}
+.tab-color{
+    font-size: 12px;
+    margin: auto;
+    color: rgb(235, 69, 105);
+    position: relative;
+    
+}
+.design-text{
+    position: absolute;
+    top:10px;
+    color: aliceblue;
+    display: flex;
 
 }

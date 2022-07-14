@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonImg, useIonAlert,IonLoading, useIonToast, IonInput,IonGrid,IonRow, IonCol, IonButton, IonCard, IonLabel, useIonRouter} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonImg, useIonToast, IonInput,IonGrid,IonRow,  IonButton,  IonLabel, useIonRouter, useIonLoading} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import { useState, useEffect } from "react";
 import { signInWithGoogle, sigInWithFacebook } from '../firebase';
@@ -17,8 +17,8 @@ const Signup = () => {
   const [emailError, setEmailError] = useState('');
   const [PassswordError, setPasswordError] = useState('');
   const [mobileError, setmobileError] = useState('');
-  const [showLoading, setShowLoading] = useState(false);
   const [present]=useIonToast();
+  const [showLoading, dismiss] = useIonLoading();
   let router = useIonRouter();
 
   const clearInputs = () => {
@@ -67,22 +67,32 @@ const Signup = () => {
       const msg = "please enter your password";
       handleToast(msg);
     }else if (password === repeatpassword) {
-      setShowLoading(true);
+      showLoading({
+        message: 'Please wait..',
+        duration: 3000
+      })
+
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password, repeatpassword)
         .then(() => {
+          dismiss();
           router.push("/dashboard");
         })
         .then(() => {
-          setShowLoading(false);
+          
           handleToast(" You have Registered successfully");
         })
 
 
 
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => { router.push("/login") }).then(() => {
-
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(() => { 
+      dismiss();
+      router.push("/login") 
+    })
+    .then(() => {
+      dismiss();
       handleToast(" Account successfully Created");
 
     })
@@ -90,10 +100,11 @@ const Signup = () => {
         switch (err.code) {
           case "auth/email-already-in-use":
           case "auth/invalid-email":
-
+            dismiss();
             setEmailError(err.message);
             break;
           case "auth/weak-password":
+            dismiss();
             setPasswordError(err.message);
             break;
           }

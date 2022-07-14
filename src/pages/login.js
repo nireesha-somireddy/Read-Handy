@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonInput, IonButton,IonLoading , IonCard, IonLabel, useIonRouter, IonGrid, IonRow, IonIcon, IonImg, useIonAlert, useIonToast } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonLabel, useIonRouter, IonGrid, IonRow, IonIcon, IonImg, useIonAlert, useIonToast, useIonLoading } from '@ionic/react';
 import {logoFacebook, logoGoogle} from 'ionicons/icons';
 import { Link } from "react-router-dom";
 import ExploreContainer from '../components/ExploreContainer';
@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import { signInWithGoogle, sigInWithFacebook } from '../firebase';
 import { toastController } from "@ionic/core";
 
-
 const Login = () => {
   const [user,setUser]=useState('');
   const [email, setEmail] = useState('');
@@ -17,7 +16,7 @@ const Login = () => {
   const [PassswordError, setPasswordError] = useState('');
   const [presentAlert] = useIonAlert();
   const [present] = useIonToast();
-  const [showLoading, setShowLoading] = useState(false);
+  const [showLoading, dismiss] = useIonLoading();
 
   let router = useIonRouter();
   const clearInputs = () => {
@@ -77,38 +76,47 @@ const Login = () => {
       const msg = "Please enter your password";
       handleToast(msg);
     }else{
-      setShowLoading(true);
+      showLoading({
+        message: 'Please wait..',
+        duration: 3000
+      })
+     
     firebase
       .auth()
+
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        setShowLoading(false);
+       dismiss();
         router.push("/dashboard");
       })
       .then(() => {
+       
         
         handleToast(" You have login successfully");
       })
 
       .catch((err) => {
+        
+       
+      
+       
         switch (err.code) {
           case "auth/invalid-email":
           case "auth/user-disabled":
-          case "auth/user-not-found":
+          case "auth/user-not-found": 
+            dismiss();
             setEmailError(err.message);
             break;
           case "auth/wrong-password":
+            dismiss();
             setPasswordError(err.message);
             break;
+            
         }
       });
     }
       clearInputs();
     };
-
-    if(showLoading){
-      return <IonLoading  isOpen/>
-     }
 
   return (
     <IonPage >
