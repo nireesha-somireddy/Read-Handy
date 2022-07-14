@@ -5,6 +5,10 @@ const config: CapacitorConfig = {
   appName: 'figma2',
   webDir: 'build',
   bundledWebRuntime: false,
+  server:{
+    url:'http://172.17.5.177:8100',
+    cleartext: true
+    },
   plugins: {
     SplashScreen: {
         launchShowDuration : 1000

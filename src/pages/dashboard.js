@@ -16,7 +16,8 @@ import {
   IonInfiniteScroll, 
   IonInfiniteScrollContent, 
   IonToolbar,
-  useIonViewWillEnter
+  useIonViewWillEnter,
+  IonText,
 } from "@ionic/react";
 import {
   homeSharp,
@@ -28,6 +29,7 @@ import { firebaseApp } from "../firebase";
 import "./dashboard.css";
 import React, {useState} from 'react';
 import { toastController,  } from "@ionic/core";
+import data from './data'
 
 
 const Dashboard = () => {
@@ -46,7 +48,7 @@ const Dashboard = () => {
       ...newData
     ]);
   }
-  const loadData = (ev: any) => {
+  const loadData = (ev) => {
     setTimeout(() => {
       pushData();
       console.log('Loaded data');
@@ -110,20 +112,18 @@ const Dashboard = () => {
           <IonCard className="design">
             <IonImg className="dimg" src="./assets/h1.jpg">
             </IonImg>
-            {/* <IonLabel className="design-text"> Design</IonLabel> */}
+         
           </IonCard>
           </IonCol>
           <IonCol>
           <IonCard className="design">
             <IonImg className="dimg" src="./assets/h1.jpg">
             </IonImg>
-            {/* <IonLabel className="design-text"> Design</IonLabel> */}
+        
           </IonCard>
           </IonCol>
 
         </IonRow>
-
-      
           <IonRow id='bar'>
           <IonCol>All</IonCol>
             <IonCol>Tech </IonCol>
@@ -135,19 +135,12 @@ const Dashboard = () => {
         </IonToolbar>
         
       <IonContent color='dark'>
-     
-
-        <ExploreContainer />
+    
         <IonGrid>
-
-     
-       
-     
-
           <IonRow>
             <IonCol size='4.5'>
             <IonCard className='cfashion'>
-                <IonImg className="timg" src="./assets/tech.jpg">
+                <IonImg  src="./assets/technology.jpg">
               {" "}
                 </IonImg>
                 </IonCard>
@@ -162,7 +155,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg  src="./assets/fashionimg.jpg">
               {" "}
 
                 </IonImg>
@@ -176,7 +169,7 @@ const Dashboard = () => {
           <IonRow >
             <IonCol size='4.5'>
             <IonCard className='cfashion'>
-                <IonImg className="simg" src="./assets/s.jpg">
+                <IonImg className="simg" src="./assets/sportsimg.jpg">
               {" "}
 
                 </IonImg>
@@ -190,7 +183,7 @@ const Dashboard = () => {
          <IonRow >
             <IonCol size='4.5'>
             <IonCard className='cfashion'>
-                <IonImg className="pimg" src="./assets/p.jpg">
+                <IonImg className="pimg" src="./assets/politicsimg.jpg">
               {" "}
 
                 </IonImg>
@@ -204,7 +197,7 @@ const Dashboard = () => {
             <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/art.jpg">
+                <IonImg className="fimg" src="./assets/artimg.jpg">
               {" "}
 
                 </IonImg>
@@ -217,7 +210,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/gun.jpg">
+                <IonImg className="fimg" src="./assets/gunimg1.jpg">
               {" "}
 
                 </IonImg>
@@ -230,7 +223,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/Drama.jpg">
+                <IonImg className="fimg" src="./assets/drama1.jpg">
               {" "}
 
                 </IonImg>
@@ -243,7 +236,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg className="fimg" src="./assets/nature.jpg">
               {" "}
 
                 </IonImg>
@@ -256,7 +249,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg className="fimg" src="./assets/travel.jpg">
               {" "}
 
                 </IonImg>
@@ -269,7 +262,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg className="fimg" src="./assets/mistary.jpg">
               {" "}
 
                 </IonImg>
@@ -282,7 +275,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg className="fimg" src="./assets/miscellances.jpg">
               {" "}
 
                 </IonImg>
@@ -295,7 +288,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg className="fimg" src="./assets/business.jpg">
               {" "}
 
                 </IonImg>
@@ -308,33 +301,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
-              {" "}
-
-                </IonImg>
-                </IonCard></IonCol>
-            <IonCol >
-              <h5 id='font'><b>Action</b></h5>
-              <p>This is fashion title</p>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size='4.5'>  
-              <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
-              {" "}
-
-                </IonImg>
-                </IonCard></IonCol>
-            <IonCol >
-              <h5 id='font'><b>Adventure</b></h5>
-              <p>This is fashion title</p>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size='4.5'>  
-              <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg className="fimg" src="./assets/music.jpg">
               {" "}
 
                 </IonImg>
@@ -347,7 +314,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg className="fimg" src="./assets/food.jpg">
               {" "}
 
                 </IonImg>
@@ -360,7 +327,7 @@ const Dashboard = () => {
           <IonRow>
             <IonCol size='4.5'>  
               <IonCard className='cfashion'>
-                <IonImg className="fimg" src="./assets/f.jpg">
+                <IonImg className="fimg" src="./assets/history1.jpg">
               {" "}
 
                 </IonImg>
