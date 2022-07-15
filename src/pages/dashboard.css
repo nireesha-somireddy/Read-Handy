@@ -7,26 +7,38 @@
     margin: auto;
     background-color:  #222428;  
 }
-.cfashion {
-    -background:transparent!important;
-    box-shadow: none!important;
-    -webkit-box-shadow: none!important; 
-    border-radius: 10px;
-    display: flex;
-    margin: auto; 
-    background-color:  #222428; 
-    margin-left: 20px; 
-}
-.dimg {
-  margin: auto;
-    border-radius: 10px;
-    display: flex;   
-}
-
 #font {
     color: rgb(235, 69, 105);
     text-align: left;
 }
+
+.tech-text{
+    font-size: 10px;
+    color:aliceblue
+}
+.tech{
+    font-size:large;
+    color: rgb(235, 69, 105) ;
+    font-weight:500;
+    font-size: 13px;
+}
+.tech-btn{
+    margin: auto;
+    margin-right: 20px;
+    font-size: 4px;
+    height: 10px;
+    display: flex;
+     width: 70px;
+}
+.card-cls{
+    -background:transparent!important;
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important; 
+    border-radius: 20px;
+    display: flex;
+    margin: auto; 
+    background-color: #26282b; 
+    margin-left: 20px; }
 
 #cr {
     margin-top: 18px;
