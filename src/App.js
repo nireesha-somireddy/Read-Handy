@@ -7,6 +7,7 @@ import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
 import Tech from './pages/tech';
 import techdata from './pages/techdata';
+import Profile from './pages/profile';
 // import { AuthContextProvider } from "./context/AuthContext";
 
 
@@ -34,7 +35,7 @@ import { Browser } from "@capacitor/browser";
 import { useEffect, useState } from "react";
 import { collection, doc, getDoc, setDoc} from "firebase/firestore"; 
 //import { db } from './firebase';
- import { db } from "C:/Users/SomireddyNireesha/figmadesignapp/readhandy/src/firebase.js";
+ import { db } from "./firebase.js";
 setupIonicReact();
 const App = () => {
   const [updateDetails, setUpdateDetails] = useState({});
@@ -138,6 +139,9 @@ const App = () => {
         </Route>
         <Route exact path="/tech">
           <Tech />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />

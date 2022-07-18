@@ -1,0 +1,22 @@
+.card-size{
+    background-color: #26282b; 
+    color: rgb(222, 222, 223);
+    margin: auto;
+}
+.img{
+    display: flex;
+    margin: auto;
+}
+.img-logo{
+margin: auto;
+width:60px;
+margin-left: 1px;
+}
+.title-content{
+    margin-top: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    font-weight: 20px;
+    color: aliceblue;
+    /* color: rgb(235, 69, 105); */
+}

@@ -17,6 +17,7 @@ import {
   IonInfiniteScrollContent, 
   IonToolbar,
   useIonViewWillEnter,
+  IonTab,
 } from "@ionic/react";
 import {
   homeSharp,
@@ -29,6 +30,7 @@ import "./dashboard.css";
 import React, {useState} from 'react';
 
 import { Link } from "react-router-dom";
+import { IonReactRouter } from "@ionic/react-router";
 
 const Dashboard = () => {
   const [data, setData] = useState('');
@@ -525,7 +527,7 @@ const Dashboard = () => {
           ></IonInfiniteScrollContent>
         </IonInfiniteScroll>
       </IonContent>
-    <IonTabBar color='dark'>
+        <IonTabBar color='dark'>
         <IonTabButton fill='clear' className='tab-color' >
           <IonIcon icon={homeSharp}/>
           <IonLabel>
@@ -539,7 +541,7 @@ const Dashboard = () => {
                Notification
           </IonLabel>
         </IonTabButton>
-        <IonTabButton fill='clear' className='tab-color' routerlink="/profile" >
+        <IonTabButton  fill='clear' className='tab-color' href='/profile' >
           <IonIcon icon={personSharp} >
           </IonIcon>
           <IonLabel>
@@ -547,6 +549,7 @@ const Dashboard = () => {
           </IonLabel>
         </IonTabButton>
       </IonTabBar>
+      
     </IonPage>
   );
 };
