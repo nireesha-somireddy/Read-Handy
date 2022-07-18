@@ -4,4 +4,5 @@
     <string name="title_activity_main">Read Handy</string>
     <string name="package_name">com.readhandy.app</string>
     <string name="custom_url_scheme">com.readhandy.app</string>
+    <string name="server_client_id">982396413499-dl2448lfeqg59v5h1vs0kg902bg0q1eb.apps.googleusercontent.com</string>
 </resources>

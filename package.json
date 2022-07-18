@@ -11,6 +11,7 @@
     "@capacitor/core": "^3.6.0",
     "@capacitor/ios": "^3.6.0",
     "@capacitor/splash-screen": "^1.2.2",
+    "@codetrix-studio/capacitor-google-auth": "^3.1.4",
     "@dcasia/react-lazy-load-image-component-improved": "^1.5.7",
     "@ionic-native/spinner-dialog": "^5.36.0",
     "@ionic/react": "^6.0.0",

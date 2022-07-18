@@ -7,6 +7,7 @@ import './login.css';
 import { useState, useEffect } from "react";
 import { signInWithGoogle, sigInWithFacebook } from '../firebase';
 import { toastController } from "@ionic/core";
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 const Login = () => {
   const [user,setUser]=useState('');
@@ -27,6 +28,25 @@ const Login = () => {
     setEmailError('');
     setPasswordError('');
   };
+  
+const signInGoogle = async () => {
+    GoogleAuth.initialize();
+    const result = await GoogleAuth.signIn();
+
+    console.log(result);
+    // console.info('result', result);
+    if (result) {
+      router.push("/dashboard");
+      console.log(result);
+      // history.push({
+      //   pathname: '/home',
+      //   state: { name: result.name || result.displayName, image: result.imageUrl, email: result.email }
+      // });
+    }
+
+  }
+
+
 
   const authlistener = () => {
     firebase.auth().onAuthStateChanged((email) => {
@@ -55,7 +75,7 @@ const Login = () => {
       cssClass:"lp-alert",
     });
   };
-
+   
    const handleToast = (err)=>{
   present({
    message:err,
@@ -155,11 +175,12 @@ const Login = () => {
           </IonRow>
           
           <IonRow>
-           <IonIcon icon={logoFacebook} id='icon-f' onClick={sigInWithFacebook}> </IonIcon>
-           <IonIcon icon={logoGoogle} onClick={signInWithGoogle} id='icon-g'> </IonIcon>
-       
+           {/* 
+            */}
+            <IonButton fill='clear'  onClick={signInGoogle} className="g-btn">
+           <IonIcon icon={logoGoogle} id='icon-g'> </IonIcon>
+           </IonButton>
           </IonRow>
-        
         </IonGrid>
       </IonContent>
     </IonPage>

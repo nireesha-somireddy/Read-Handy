@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "982396413499",
+    "project_id": "myblog-bcfa7",
+    "storage_bucket": "myblog-bcfa7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982396413499:android:469f573ba19e7536ca5e1e",
+        "android_client_info": {
+          "package_name": "com.readhandy.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982396413499-oho75m4b2du0q4i6tephdtprgb31e05q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.readhandy.app",
+            "certificate_hash": "300a31f211dcfa52af19db5fd9f6347dc24039ae"
+          }
+        },
+        {
+          "client_id": "982396413499-dl2448lfeqg59v5h1vs0kg902bg0q1eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9EhmtlYI6jUWykv_iF5DSMo6uJYpr7Wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982396413499-dl2448lfeqg59v5h1vs0kg902bg0q1eb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

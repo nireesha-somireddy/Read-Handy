@@ -146,6 +146,11 @@
     color: rgb(235, 69, 105);
     display: flex;
     margin: auto;
-    font-size: 40px;
+    width:90px;
+    height: 40px;
+}
+.g-btn{
+    margin: auto;
+    display: flex;
     margin-top: 30px;
 }

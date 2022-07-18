@@ -125,11 +125,12 @@ const Dashboard = () => {
 
         </IonRow>
           <IonRow id='bar'>
-          <IonCol>All</IonCol>
-            <IonCol>Tech </IonCol>
-            <IonCol>Fashion </IonCol>
-            <IonCol>Sports</IonCol>
-            <IonCol>Politics</IonCol>
+          <IonCol>
+            <IonButton fill='clear' color="light" href="/tech">All</IonButton></IonCol>
+            <IonCol> <IonButton fill='clear' color="light" href="/tech">Tech</IonButton></IonCol>
+            <IonCol> <IonButton fill='clear' color="light" href="/tech">Fashion</IonButton> </IonCol>
+            <IonCol> <IonButton fill='clear' color="light" href="/tech">Sports</IonButton></IonCol>
+            <IonCol> <IonButton fill='clear' color="light" href="/tech">Politics</IonButton></IonCol>
           </IonRow>
         </IonGrid>
         </IonToolbar>
