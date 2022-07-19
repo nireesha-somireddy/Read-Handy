@@ -6,9 +6,29 @@ import firebase from 'firebase/compat/app';
 import './login.css';
 import { useState, useEffect } from "react";
 import { signInWithGoogle, sigInWithFacebook } from '../firebase';
-import { toastController } from "@ionic/core";
+// import { toastController } from "@ionic/core";
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+
+
 
 const Login = () => {
+
+
+  // const router = useIonRouter();
+  const signInGoogle = async () => {
+    GoogleAuth.initialize();
+    const result = await GoogleAuth.signIn();
+    console.log(result);
+    // console.info('result', result);
+    if (result) {
+      router.push("/dashboard");
+      console.log(result);
+   
+    }
+  
+  
+  
+  }
   const [user,setUser]=useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -153,6 +173,7 @@ const Login = () => {
           <IonRow>
           <p id='txt2'>----Or sign in with----</p>
           </IonRow>
+          <IonButton onClick={(e)=>signInGoogle()}>Signin with google</IonButton>
           
           <IonRow>
            <IonIcon icon={logoFacebook} id='icon-f' onClick={sigInWithFacebook}> </IonIcon>

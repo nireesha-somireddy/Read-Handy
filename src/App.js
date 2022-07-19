@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom';
+// import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact,useIonAlert,useIonToast,isPlatform} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
@@ -35,6 +35,8 @@ import { useEffect, useState } from "react";
 import { collection, doc, getDoc, setDoc} from "firebase/firestore"; 
 //import { db } from './firebase';
  import { db } from "C:/Users/SomireddyNireesha/figmadesignapp/readhandy/src/firebase.js";
+import { Route } from 'react-router-dom';
+import { Redirect } from 'react-router';
 setupIonicReact();
 const App = () => {
   const [updateDetails, setUpdateDetails] = useState({});

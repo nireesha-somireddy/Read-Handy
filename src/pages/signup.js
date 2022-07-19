@@ -5,7 +5,7 @@ import { signInWithGoogle, sigInWithFacebook } from '../firebase';
 import firebase from 'firebase/compat/app';
 import { Link } from "react-router-dom";
 import './signup.css';
-import { toastController,  } from "@ionic/core";
+// import { toastController,  } from "@ionic/core";
 
 const Signup = () => {
 
