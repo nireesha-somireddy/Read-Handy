@@ -1,6 +1,6 @@
 {
   "name": "figmadesignapp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "dependencies": {
     "@awesome-cordova-plugins/barcode-scanner": "^5.44.0",
