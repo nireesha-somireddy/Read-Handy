@@ -17,6 +17,7 @@ import {
   IonInfiniteScrollContent, 
   IonToolbar,
   useIonViewWillEnter,
+  IonTab,
 } from "@ionic/react";
 import {
   homeSharp,
@@ -29,6 +30,7 @@ import "./dashboard.css";
 import React, {useState} from 'react';
 
 import { Link } from "react-router-dom";
+import { IonReactRouter } from "@ionic/react-router";
 
 const Dashboard = () => {
   const [data, setData] = useState('');
@@ -123,11 +125,12 @@ const Dashboard = () => {
 
         </IonRow>
           <IonRow id='bar'>
-          <IonCol>All</IonCol>
-            <IonCol>Tech </IonCol>
-            <IonCol>Fashion </IonCol>
-            <IonCol>Sports</IonCol>
-            <IonCol>Politics</IonCol>
+          <IonCol size='2'>
+            <IonButton fill='clear' color="light" href="/tech">All</IonButton></IonCol>
+            <IonCol size='2'> <IonButton fill='clear' color="light" href="/tech">Tech</IonButton></IonCol>
+            <IonCol size='2.5'> <IonButton fill='clear' color="light" href="/tech">Fashion</IonButton> </IonCol>
+            <IonCol size='2.5'> <IonButton fill='clear' color="light" href="/tech">Sports</IonButton></IonCol>
+            <IonCol size='3'> <IonButton fill='clear' color="light" href="/tech">Politics</IonButton></IonCol>
           </IonRow>
         </IonGrid>
         </IonToolbar>
@@ -525,7 +528,7 @@ const Dashboard = () => {
           ></IonInfiniteScrollContent>
         </IonInfiniteScroll>
       </IonContent>
-    <IonTabBar color='dark'>
+        <IonTabBar color='dark'>
         <IonTabButton fill='clear' className='tab-color' >
           <IonIcon icon={homeSharp}/>
           <IonLabel>
@@ -539,7 +542,7 @@ const Dashboard = () => {
                Notification
           </IonLabel>
         </IonTabButton>
-        <IonTabButton fill='clear' className='tab-color' routerlink="/profile" >
+        <IonTabButton  fill='clear' className='tab-color' href='/profile' >
           <IonIcon icon={personSharp} >
           </IonIcon>
           <IonLabel>
@@ -547,6 +550,7 @@ const Dashboard = () => {
           </IonLabel>
         </IonTabButton>
       </IonTabBar>
+      
     </IonPage>
   );
 };

@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonLabel, useIonRouter, IonGrid, IonRow, IonIcon, IonImg, useIonAlert, useIonToast, useIonLoading } from '@ionic/react';
-import {logoFacebook, logoGoogle} from 'ionicons/icons';
+import { logoFacebook, logoGoogle } from 'ionicons/icons';
 import { Link } from "react-router-dom";
 import ExploreContainer from '../components/ExploreContainer';
 import firebase from 'firebase/compat/app';
@@ -7,9 +7,10 @@ import './login.css';
 import { useState, useEffect } from "react";
 import { signInWithGoogle, sigInWithFacebook } from '../firebase';
 import { toastController } from "@ionic/core";
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 const Login = () => {
-  const [user,setUser]=useState('');
+  const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -28,12 +29,31 @@ const Login = () => {
     setPasswordError('');
   };
 
+  const signInGoogle = async () => {
+    GoogleAuth.initialize();
+    const result = await GoogleAuth.signIn();
+
+    console.log(result);
+    // console.info('result', result);
+    if (result) {
+      router.push("/dashboard");
+      console.log(result);
+      // history.push({
+      //   pathname: '/home',
+      //   state: { name: result.name || result.displayName, image: result.imageUrl, email: result.email }
+      // });
+    }
+
+  }
+
+
+
   const authlistener = () => {
     firebase.auth().onAuthStateChanged((email) => {
       if (email) {
         setEmail(email);
         clearInputs();
-        
+
       }
       else {
         setEmail("");
@@ -46,77 +66,77 @@ const Login = () => {
 
   const handleAlert = (err) => {
     presentAlert({
-      header:"Alert",
+      header: "Alert",
       message: err,
-      buttons:["OK"],
-      backdropDismiss:true,
-      transculent:true,
-      animated:true,
-      cssClass:"lp-alert",
+      buttons: ["OK"],
+      backdropDismiss: true,
+      transculent: true,
+      animated: true,
+      cssClass: "lp-alert",
     });
   };
 
-   const handleToast = (err)=>{
-  present({
-   message:err,
-   position:"top",
-   animated:true,
-   duration:2000,
-   color:"dark",
-   model:"ios",
-   icon: alert,
-  })
-   }
-   const handlelogin=()=>{
+  const handleToast = (err) => {
+    present({
+      message: err,
+      position: "top",
+      animated: true,
+      duration: 2000,
+      color: "dark",
+      model: "ios",
+      icon: alert,
+    })
+  }
+  const handlelogin = () => {
     clearErrors();
-    if(email == null || email ===""){
+    if (email == null || email === "") {
       const msg = "Please enter your email";
       handleToast(msg);
-    }else if (password == null || password ==="") {
+    } else if (password == null || password === "") {
       const msg = "Please enter your password";
       handleToast(msg);
-    }else{
+    } else {
       showLoading({
         message: 'Please wait..',
         duration: 3000
       })
-     
-    firebase
-      .auth()
 
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-       dismiss();
-        router.push("/dashboard");
-      })
-      .then(() => {
-       
-        
-        handleToast(" You have login successfully");
-      })
+      firebase
+        .auth()
 
-      .catch((err) => {
-        
-       
-      
-       
-        switch (err.code) {
-          case "auth/invalid-email":
-          case "auth/user-disabled":
-          case "auth/user-not-found": 
-            dismiss();
-            setEmailError(err.message);
-            break;
-          case "auth/wrong-password":
-            dismiss();
-            setPasswordError(err.message);
-            break;
-            
-        }
-      });
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          dismiss();
+          router.push("/dashboard");
+        })
+        .then(() => {
+
+
+          handleToast(" You have login successfully");
+        })
+
+        .catch((err) => {
+
+
+
+
+          switch (err.code) {
+            case "auth/invalid-email":
+            case "auth/user-disabled":
+            case "auth/user-not-found":
+              dismiss();
+              setEmailError(err.message);
+              break;
+            case "auth/wrong-password":
+              dismiss();
+              setPasswordError(err.message);
+              break;
+
+          }
+        });
     }
-      clearInputs();
-    };
+    clearInputs();
+  };
 
   return (
     <IonPage >
@@ -125,41 +145,42 @@ const Login = () => {
         </IonHeader>
         <ExploreContainer />
         <IonGrid>
-        <IonRow>
-        <IonImg src="../assets/suplogo.jpg" className='logo-cls-signin
-        '>{" "}</IonImg>
-        </IonRow>
           <IonRow>
-           <h1 id='txt-wel-back'><b> Welcome </b></h1>
+            <IonImg src="../assets/suplogo.jpg" className='logo-cls-signin
+        '>{" "}</IonImg>
           </IonRow>
-         <IonRow className='input-login'>
-          <IonInput class="input" value={email}  placeholder="Enter your Email" onIonChange={(e) => setEmail(e.detail.value)} />
-          <IonLabel className="errorMsg"> {emailError}</IonLabel>
+          <IonRow>
+            <h1 id='txt-wel-back'><b> Welcome </b></h1>
           </IonRow>
           <IonRow className='input-login'>
-          <IonInput class="input1" type="password" value={password}  placeholder="password" onIonChange={(e) => setPassword(e.detail.value)} />
-          <IonLabel className="errorMsg"> {PassswordError}</IonLabel>
+            <IonInput class="input" value={email} placeholder="Enter your Email" onIonChange={(e) => setEmail(e.detail.value)} />
+            <IonLabel className="errorMsg"> {emailError}</IonLabel>
+          </IonRow>
+          <IonRow className='input-login'>
+            <IonInput class="input1" type="password" value={password} placeholder="password" onIonChange={(e) => setPassword(e.detail.value)} />
+            <IonLabel className="errorMsg"> {PassswordError}</IonLabel>
           </IonRow>
           <IonRow id='text2'>
-          <p>Forgot Password?</p>
+            <p>Forgot Password?</p>
           </IonRow>
           <IonRow>
-          <IonButton expand="full" color='danger' id='signin' onClick={handlelogin} >sign In</IonButton><br/>
+            <IonButton expand="full" color='danger' id='signin' onClick={handlelogin} >sign In</IonButton><br />
           </IonRow>
           <IonRow>
-           <IonLabel id='text'>If you are new? &nbsp;<Link id='si-in-link' onClick={clearInputs} to='/signup'>Sign Up</Link></IonLabel>
-           </IonRow>
-        
-          <IonRow>
-          <p id='txt2'>----Or sign in with----</p>
+            <IonLabel id='text'>If you are new? &nbsp;<Link id='si-in-link' onClick={clearInputs} to='/signup'>Sign Up</Link></IonLabel>
           </IonRow>
-          
+
           <IonRow>
-           <IonIcon icon={logoFacebook} id='icon-f' onClick={sigInWithFacebook}> </IonIcon>
-           <IonIcon icon={logoGoogle} onClick={signInWithGoogle} id='icon-g'> </IonIcon>
-       
+            <p id='txt2'>----Or sign in with----</p>
           </IonRow>
-        
+
+          <IonRow>
+            {/* 
+            */}
+            <IonButton fill='clear' onClick={signInGoogle} className="g-btn">
+              <IonIcon icon={logoGoogle} id='icon-g'> </IonIcon>
+            </IonButton>
+          </IonRow>
         </IonGrid>
       </IonContent>
     </IonPage>
