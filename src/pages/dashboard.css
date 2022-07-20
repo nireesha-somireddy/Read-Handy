@@ -1,26 +1,28 @@
 .design {
-    -background:transparent!important;
-    box-shadow: none!important;
-    -webkit-box-shadow: none!important;
-    border-radius: 10px;
-    display: flex; 
-    margin: auto;
-    background-color:  #222428;  
-}
-.cfashion {
-    -background:transparent!important;
-    box-shadow: none!important;
-    -webkit-box-shadow: none!important; 
+    -background: transparent !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
     border-radius: 10px;
     display: flex;
-    margin: auto; 
-    background-color:  #222428; 
-    margin-left: 20px; 
+    margin: auto;
+    background-color: #222428;
 }
-.dimg {
-  margin: auto;
+
+.cfashion {
+    -background: transparent !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
     border-radius: 10px;
-    display: flex;   
+    display: flex;
+    margin: auto;
+    background-color: #222428;
+    margin-left: 20px;
+}
+
+.dimg {
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
 }
 
 #font {
@@ -41,7 +43,7 @@
     height: 69vh !important;
 }
 
-#article{
+#article {
     color: rgb(235, 69, 105);
     font-size: 25px;
     justify-content: center;
@@ -50,7 +52,7 @@
     margin-top: 50px;
 }
 
-#bar{
+#bar {
     margin: auto;
     display: flex;
     margin-left: 20px;
@@ -58,21 +60,23 @@
     margin-bottom: 5px;
 }
 
-#logout{
-     margin: auto;
+#logout {
+    margin: auto;
     display: flex;
-margin-right: 20px;
+    margin-right: 20px;
 }
-.tab-color{
+
+.tab-color {
     font-size: 12px;
     margin: auto;
     color: rgb(235, 69, 105);
     position: relative;
-    
+
 }
-.design-text{
+
+.design-text {
     position: absolute;
-    top:10px;
+    top: 10px;
     color: aliceblue;
     display: flex;
 
