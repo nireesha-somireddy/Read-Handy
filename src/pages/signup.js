@@ -1,23 +1,20 @@
-import { IonContent, IonHeader, IonPage, IonImg, useIonToast, IonInput,IonGrid,IonRow,  IonButton,  IonLabel, useIonRouter, useIonLoading} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonImg, useIonToast, IonInput, IonGrid, IonRow, IonButton, IonLabel, useIonRouter, useIonLoading } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import { useState, useEffect } from "react";
-import { signInWithGoogle, sigInWithFacebook } from '../firebase';
 import firebase from 'firebase/compat/app';
 import { Link } from "react-router-dom";
 import './signup.css';
-import { toastController,  } from "@ionic/core";
 
 const Signup = () => {
 
-  const [user, setUser] = useState('');
+  const [setUser] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatpassword, setRepeatPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [PassswordError, setPasswordError] = useState('');
-  const [mobileError, setmobileError] = useState('');
-  const [present]=useIonToast();
+  const [present] = useIonToast();
   const [showLoading, dismiss] = useIonLoading();
   let router = useIonRouter();
 
@@ -47,26 +44,26 @@ const Signup = () => {
     authlistener();
   }, []);
   const handleToast = (err) => {
-     present({
+    present({
       message: err,
-      backdropDismiss:true,
-      transculent:true,
-      animated:true,
-      cssClass:"lp-alert",
+      backdropDismiss: true,
+      transculent: true,
+      animated: true,
+      cssClass: "lp-alert",
       position: "top",
       color: "dark",
     });
   };
 
-  const handleSignup=()=>{
+  const handleSignup = () => {
     clearErrors();
-    if(email == null || email ===""){
+    if (email == null || email === "") {
       const msg = "please enter your email";
       handleToast(msg);
-    }else if (password == null || password ==="") {
+    } else if (password == null || password === "") {
       const msg = "please enter your password";
       handleToast(msg);
-    }else if (password === repeatpassword) {
+    } else if (password === repeatpassword) {
       showLoading({
         message: 'Please wait..',
         duration: 3000
@@ -80,41 +77,41 @@ const Signup = () => {
           router.push("/dashboard");
         })
         .then(() => {
-          
+
           handleToast(" You have Registered successfully");
         })
 
 
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => { 
-      dismiss();
-      router.push("/login") 
-    })
-    .then(() => {
-      dismiss();
-      handleToast(" Account successfully Created");
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          dismiss();
+          router.push("/login")
+        })
+        .then(() => {
+          dismiss();
+          handleToast(" Account successfully Created");
 
-    })
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/email-already-in-use":
-          case "auth/invalid-email":
-            dismiss();
-            setEmailError(err.message);
-            break;
-          case "auth/weak-password":
-            dismiss();
-            setPasswordError(err.message);
-            break;
+        })
+        .catch((err) => {
+          switch (err.code) {
+            case "auth/email-already-in-use":
+            case "auth/invalid-email":
+              dismiss();
+              setEmailError(err.message);
+              break;
+            case "auth/weak-password":
+              dismiss();
+              setPasswordError(err.message);
+              break;
           }
 
-        },  );
+        });
 
-        clearInputs();
-      }
-    };
-    
+      clearInputs();
+    }
+  };
+
   return (
     <IonPage>
       <IonContent color='dark' >
@@ -122,33 +119,33 @@ const Signup = () => {
         </IonHeader>
         <ExploreContainer />
         <IonGrid>
-        <IonRow>
-        <IonImg src="../assets/suplogo.jpg" className='logo-cls'>{" "}</IonImg>
-        </IonRow>
+          <IonRow>
+            <IonImg src="../assets/suplogo.jpg" className='logo-cls'>{" "}</IonImg>
+          </IonRow>
           <IonRow>
             <h1 id='crt-new-acc'><b> Create new account</b></h1>
-           </IonRow>
-           <IonRow className='input-user'>
-              <IonInput class="input" type="text" value={name}  placeholder="Full Name" onIonChange={(e) => setName(e.detail.value)} />
           </IonRow>
           <IonRow className='input-user'>
-          <IonInput class="input" value={email} placeholder="Email address" onIonChange={(e) => setEmail(e.detail.value)} />
-          <IonLabel className="errorMsg">{emailError}</IonLabel>
+            <IonInput class="input" type="text" value={name} placeholder="Full Name" onIonChange={(e) => setName(e.detail.value)} />
           </IonRow>
           <IonRow className='input-user'>
-          <IonInput class="input" type="password" placeholder="Password" value={password} onIonChange={(e) => setPassword(e.detail.value)} />
-          <IonLabel className="errorMsg">{PassswordError}</IonLabel>
-           </IonRow>
-           <IonRow className='input-user'>
-          <IonInput class="input" type="password" placeholder="Repeat password" value={repeatpassword} onIonChange={(e) => setRepeatPassword(e.detail.value)} />
-          <IonLabel className="errorMsg">{PassswordError}</IonLabel>
-           </IonRow>
-           <IonRow >
-          <IonButton onClick={handleSignup} color='danger'  id='create'> Create Account</IonButton><br />
-        
+            <IonInput class="input" value={email} placeholder="Email address" onIonChange={(e) => setEmail(e.detail.value)} />
+            <IonLabel className="errorMsg">{emailError}</IonLabel>
+          </IonRow>
+          <IonRow className='input-user'>
+            <IonInput class="input" type="password" placeholder="Password" value={password} onIonChange={(e) => setPassword(e.detail.value)} />
+            <IonLabel className="errorMsg">{PassswordError}</IonLabel>
+          </IonRow>
+          <IonRow className='input-user'>
+            <IonInput class="input" type="password" placeholder="Repeat password" value={repeatpassword} onIonChange={(e) => setRepeatPassword(e.detail.value)} />
+            <IonLabel className="errorMsg">{PassswordError}</IonLabel>
+          </IonRow>
+          <IonRow >
+            <IonButton onClick={handleSignup} color='danger' id='create'> Create Account</IonButton><br />
+
           </IonRow>
           <IonRow>
-          <IonLabel className='account' >Have an account?&nbsp; <Link to='/login' id='si-link'>Sign In </Link></IonLabel>
+            <IonLabel className='account' >Have an account?&nbsp; <Link to='/login' id='si-link'>Sign In </Link></IonLabel>
           </IonRow>
         </IonGrid>
       </IonContent>

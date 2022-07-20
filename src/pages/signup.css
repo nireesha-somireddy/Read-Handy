@@ -1,10 +1,11 @@
-#crt-new-acc{
+#crt-new-acc {
   color: rgb(235, 69, 105);
   font-size: 25px;
   justify-content: center;
   margin: auto;
   display: flex;
 }
+
 #create {
   justify-content: center;
   color: rgb(255, 254, 254);
@@ -15,31 +16,32 @@
 }
 
 .account {
- margin: auto;
- display: flex;
- margin-top: 30px;
- font-size: 15px;
+  margin: auto;
+  display: flex;
+  margin-top: 30px;
+  font-size: 15px;
 }
 
-.input-user{
-  color:black;
+.input-user {
+  color: black;
   display: flex;
   margin: auto;
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
 }
-.logo-cls{
+
+.logo-cls {
   margin: auto;
   display: flex;
   width: 110px;
- margin-top: 50px;
- margin-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
-#si-link{
+
+#si-link {
   color: rgb(235, 69, 105);
   background-color: transparent;
   text-decoration: none;
   font-size: 17px;
 }
-

@@ -1,11 +1,10 @@
-
-#txt-wel-back{
+#txt-wel-back {
     color: rgb(235, 69, 105);
     font-size: 25px;
     justify-content: center;
     display: flex;
     margin: auto;
-   
+
 }
 
 .input {
@@ -37,8 +36,8 @@
     margin-top: 18px;
     justify-content: center;
     color: rgb(255, 254, 254);
-  }
- 
+}
+
 
 
 #btnf {
@@ -70,13 +69,13 @@
     margin-top: 30px;
 }
 
-.input-login{
-    color:black;
+.input-login {
+    color: black;
     display: flex;
     margin: auto;
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 5px ;
+    margin-top: 5px;
 }
 
 
@@ -93,7 +92,8 @@
     display: flex;
     margin-left: 20px;
 }
-.ion-content-login{
+
+.ion-content-login {
     display: flex;
     margin: auto;
     flex-direction: column;
@@ -103,53 +103,60 @@
     height: 30vh;
     margin-top: 170px;
 }
-#text{
-  margin-left: 20px;
-   margin-top: 20px;
+
+#text {
+    margin-left: 20px;
+    margin-top: 20px;
     display: flex;
 }
 
-#text2{
+#text2 {
     display: flex;
     margin: auto;
     margin-top: 10px;
     margin-left: 20px;
     margin-top: 10px;
-   
+
 }
-.errorMsg{
-    color:rgb(202, 205, 207);
+
+.errorMsg {
+    color: rgb(202, 205, 207);
 }
-.logo-cls-signin{
+
+.logo-cls-signin {
     margin: auto;
     display: flex;
     width: 110px;
-   margin-top: 60px;
-   margin-bottom: 25px;
+    margin-top: 60px;
+    margin-bottom: 25px;
 }
-#si-in-link{
+
+#si-in-link {
     color: rgb(235, 69, 105);
     background-color: transparent;
     text-decoration: none;
     font-size: 17px;
 }
-#icon-f{
+
+#icon-f {
     color: rgb(235, 69, 105);
     display: flex;
     margin: auto;
     font-size: 40px;
     margin-right: 10px;
     margin-top: 30px;
-    
+
 }
-#icon-g{
+
+#icon-g {
     color: rgb(235, 69, 105);
     display: flex;
     margin: auto;
-    width:90px;
+    width: 90px;
     height: 40px;
 }
-.g-btn{
+
+.g-btn {
     margin: auto;
     display: flex;
     margin-top: 30px;

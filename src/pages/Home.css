@@ -1,4 +1,4 @@
-.ion-content{
+.ion-content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -9,31 +9,32 @@
 
 #btn1 {
     display: flex;
-    margin:auto;
+    margin: auto;
     margin-top: 12px;
 }
 
-.homeimg{
+.homeimg {
     margin: auto;
     display: flex;
     width: 165px;
-   margin-top: 180px;
-   margin-bottom: 10px;
+    margin-top: 180px;
+    margin-bottom: 10px;
 }
-.wel{
+
+.wel {
     display: flex;
     justify-content: center;
-    margin:auto;
+    margin: auto;
     color: white;
     font-size: 25px;
     margin-top: 15px;
 }
-.title{
+
+.title {
     display: flex;
     justify-content: center;
-    margin:auto;
+    margin: auto;
     font-size: 33px;
     font-weight: 500;
     color: white;
 }
-

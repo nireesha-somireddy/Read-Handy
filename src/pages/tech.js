@@ -16,7 +16,7 @@ import { cart, notifications } from "ionicons/icons";
 import "./Home.css";
 import "./tech.css"
 import { Data } from "../pages/techdata";
-import React, { useState } from "react";
+import { useState } from "react";
 import { LazyLoadImage } from "@dcasia/react-lazy-load-image-component-improved";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 const Tech = () => {
@@ -85,7 +85,6 @@ const Tech = () => {
                 <IonCard className='card-size ion-margin'>
                   <IonRow >
                     <LazyLoadImage src={data.image} effect="blur" delayTime={300} placeholderSrc={process.env.PUBLIC_URL + "/assets/suplogo.jpg"} style={{ margin: "auto" }} />
-                    {/* <IonImg src={data.image} className="img"></IonImg> */}
                   </IonRow>
                   <IonRow className="title-content">{data.Title}
                   </IonRow>
@@ -98,7 +97,6 @@ const Tech = () => {
 
           <IonInfiniteScroll onIonInfinite={loadData} threshold="100px" disabled={isInfiniteDisabled}>
             <IonInfiniteScrollContent loadingSpinner="bubbles" loadingText="Loading more data...">
-
             </IonInfiniteScrollContent>
           </IonInfiniteScroll>
         </IonGrid>

@@ -1,16 +1,13 @@
 import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonLabel, useIonRouter, IonGrid, IonRow, IonIcon, IonImg, useIonAlert, useIonToast, useIonLoading } from '@ionic/react';
-import { logoFacebook, logoGoogle } from 'ionicons/icons';
+import { logoGoogle } from 'ionicons/icons';
 import { Link } from "react-router-dom";
 import ExploreContainer from '../components/ExploreContainer';
 import firebase from 'firebase/compat/app';
 import './login.css';
 import { useState, useEffect } from "react";
-import { signInWithGoogle, sigInWithFacebook } from '../firebase';
-import { toastController } from "@ionic/core";
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 const Login = () => {
-  const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -24,6 +21,7 @@ const Login = () => {
     setEmail('');
     setPassword('');
   };
+
   const clearErrors = () => {
     setEmailError('');
     setPasswordError('');
@@ -34,26 +32,17 @@ const Login = () => {
     const result = await GoogleAuth.signIn();
 
     console.log(result);
-    // console.info('result', result);
     if (result) {
       router.push("/dashboard");
       console.log(result);
-      // history.push({
-      //   pathname: '/home',
-      //   state: { name: result.name || result.displayName, image: result.imageUrl, email: result.email }
-      // });
     }
-
   }
-
-
 
   const authlistener = () => {
     firebase.auth().onAuthStateChanged((email) => {
       if (email) {
         setEmail(email);
         clearInputs();
-
       }
       else {
         setEmail("");
@@ -87,6 +76,7 @@ const Login = () => {
       icon: alert,
     })
   }
+
   const handlelogin = () => {
     clearErrors();
     if (email == null || email === "") {
@@ -116,10 +106,6 @@ const Login = () => {
         })
 
         .catch((err) => {
-
-
-
-
           switch (err.code) {
             case "auth/invalid-email":
             case "auth/user-disabled":
@@ -131,12 +117,12 @@ const Login = () => {
               dismiss();
               setPasswordError(err.message);
               break;
-
           }
         });
     }
     clearInputs();
   };
+
 
   return (
     <IonPage >

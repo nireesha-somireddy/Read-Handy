@@ -6,8 +6,6 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
 import Tech from './pages/tech';
-import techdata from './pages/techdata';
-import Profile from './pages/profile';
 // import { AuthContextProvider } from "./context/AuthContext";
 
 
@@ -28,13 +26,11 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-/* Theme variables */
 import './theme/variables.css';
 import { App as app } from "@capacitor/app";
 import { Browser } from "@capacitor/browser";
 import { useEffect, useState } from "react";
-import { collection, doc, getDoc, setDoc} from "firebase/firestore"; 
-//import { db } from './firebase';
+import { doc, getDoc} from "firebase/firestore"; 
  import { db } from "./firebase.js";
 setupIonicReact();
 const App = () => {
@@ -139,9 +135,6 @@ const App = () => {
         </Route>
         <Route exact path="/tech">
           <Tech />
-        </Route>
-        <Route exact path="/profile">
-          <Profile />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
