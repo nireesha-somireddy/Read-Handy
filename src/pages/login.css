@@ -1,57 +1,163 @@
-#txt {
-    color:black;
+#txt-wel-back {
+    color: rgb(235, 69, 105);
     font-size: 25px;
-    margin-top: 35px;
-    text-align: center;
- }
+    justify-content: center;
+    display: flex;
+    margin: auto;
 
- .input{
+}
+
+.input {
     height: 40px;
     border: solid 1px rgb(168, 164, 164);
     border-radius: 10px;
-    padding:20px;
-    margin-top: 30px;
-    background-color:rgb(255, 221, 220); 
-    color:black;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    display: flex;
 }
-.input1{
+
+.input1 {
     height: 40px;
     border: solid 1px rgb(168, 164, 164);
-    border-radius: 15px;
-    padding:40px;
+    border-radius: 10px;
+    padding: 40px;
     margin-top: 20px;
-    background-color:rgb(255, 221, 220); 
-    color:black;
+    background-color: white;
+    color: black;
+    display: flex;
 }
-#signin{
+
+#signin {
+    display: flex;
+    width: 200px;
+    margin: auto;
+    margin-top: 18px;
+    justify-content: center;
+    color: rgb(255, 254, 254);
+}
+
+
+
+#btnf {
+    margin-top: 20px;
+    border-radius: 40px;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+#btng {
+    margin-top: 20px;
+    border-radius: 40px;
+    background-color: rgb(247, 232, 232);
+    color: black;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    margin-right: 20px;
+
+}
+
+#txt2 {
+    color: rgb(253, 246, 246);
+    font-size: 15px;
+    display: flex;
+    margin: auto;
     margin-top: 30px;
 }
-#btnf{
-    margin-top: 20px;
-    border-radius: 40px;
-    margin-left: 10px;
-}
-#btng{
-    margin-top: 20px;
-    border-radius: 40px;
-    background-color:rgb(247, 232, 232); 
-    color:black;
 
+.input-login {
+    color: black;
+    display: flex;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
 }
-#txt2 {
-    color:black;
-    font-size: 15px;
+
+
+#account {
     margin-top: 40px;
-    text-align: center;
- }
- .card2{
-    -background:transparent;
-    background-color:  rgb(253, 207, 207);
-    box-shadow: none;
-   -webkit-box-shadow: none;
- }
- .ion-content {
+    display: flex;
+    margin: auto;
+}
 
-    --background: rgb(253, 207, 207);
-    text-align: left;
+#txt3 {
+    color: rgb(255, 247, 247);
+    font-size: 20px;
+    margin-top: 40px;
+    display: flex;
+    margin-left: 20px;
+}
+
+.ion-content-login {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    font-family: Calibri;
+    height: 30vh;
+    margin-top: 170px;
+}
+
+#text {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+}
+
+#text2 {
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+
+}
+
+.errorMsg {
+    color: rgb(202, 205, 207);
+}
+
+.logo-cls-signin {
+    margin: auto;
+    display: flex;
+    width: 110px;
+    margin-top: 60px;
+    margin-bottom: 25px;
+}
+
+#si-in-link {
+    color: rgb(235, 69, 105);
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#icon-f {
+    color: rgb(235, 69, 105);
+    display: flex;
+    margin: auto;
+    font-size: 40px;
+    margin-right: 10px;
+    margin-top: 30px;
+
+}
+
+#icon-g {
+    color: rgb(235, 69, 105);
+    display: flex;
+    margin: auto;
+    width: 90px;
+    height: 40px;
+}
+
+.g-btn {
+    margin: auto;
+    display: flex;
+    margin-top: 30px;
 }

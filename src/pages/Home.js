@@ -1,19 +1,25 @@
-import { IonContent, IonHeader, IonPage, IonButton} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonButton, IonGrid, IonImg, IonRow } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
-
 const Home = () => {
   return (
     <IonPage>
-      <IonContent className='ion-content-img'>
+      <IonContent color='dark' className='ion-content'>
         <IonHeader collapse="condense">
         </IonHeader>
         <ExploreContainer />
-       <h1 id='txt'><b> Welcome to Readers Icon</b></h1>
-       <h3 id='txt1'><b>Knowledge is power</b></h3>
-       <IonButton expand="full" routerLink='/signup' shape="round" id="btn" color='biscuit'>Sign Up</IonButton>
-       <IonButton expand="full" routerLink='/login' shape="round" id="btn1" color="biscuit">Sign In</IonButton>
-    
+        <IonGrid>
+          <IonRow>
+            <IonImg src="../assets/suplogo.jpg" className="homeimg">{" "}</IonImg>
+          </IonRow>
+          <IonRow className='title'> Read Handy </IonRow>
+          <IonRow>
+            <h1 className='wel'>Welcome </h1>
+          </IonRow>
+          <IonRow>
+            <IonButton routerLink='/login' id="btn1" color="danger" align='center'>Get Started</IonButton>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

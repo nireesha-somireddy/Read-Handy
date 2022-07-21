@@ -1,8 +1,19 @@
 {
   "name": "figmadesignapp",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": true,
   "dependencies": {
+    "@awesome-cordova-plugins/barcode-scanner": "^5.44.0",
+    "@awesome-cordova-plugins/spinner-dialog": "^5.44.0",
+    "@capacitor/android": "^3.6.0",
+    "@capacitor/app": "^1.1.1",
+    "@capacitor/browser": "^1.0.7",
+    "@capacitor/core": "^3.6.0",
+    "@capacitor/ios": "^3.6.0",
+    "@capacitor/splash-screen": "^1.2.2",
+    "@codetrix-studio/capacitor-google-auth": "^3.1.4",
+    "@dcasia/react-lazy-load-image-component-improved": "^1.5.7",
+    "@ionic-native/spinner-dialog": "^5.36.0",
     "@ionic/react": "^6.0.0",
     "@ionic/react-router": "^6.0.0",
     "@testing-library/jest-dom": "^5.11.9",
@@ -14,10 +25,15 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
-    "firebase": "^9.8.4",
+    "android": "^0.0.8",
+    "babel-jest": "^23.6.0",
+    "cordova-plugin-native-spinner": "^1.1.4",
+    "firebase": "^9.9.0",
     "ionicons": "^5.4.0",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-lazy-load-image-component": "^1.5.5",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.3.3",
     "typescript": "^4.1.3",
@@ -61,7 +77,8 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
+    "@capacitor/cli": "^3.6.0",
     "@ionic/lab": "3.2.13",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^2.1.8"
   }
 }
