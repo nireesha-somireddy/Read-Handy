@@ -27,7 +27,7 @@
     "@types/react-router-dom": "^5.1.7",
     "android": "^0.0.8",
     "cordova-plugin-native-spinner": "^1.1.4",
-    "firebase": "^9.8.4",
+    "firebase": "^9.9.0",
     "ionicons": "^5.4.0",
     "phonegap-plugin-barcodescanner": "^8.1.0",
     "react": "^17.0.1",
@@ -78,6 +78,6 @@
   "devDependencies": {
     "@capacitor/cli": "^3.6.0",
     "@ionic/lab": "3.2.13",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^2.1.8"
   }
 }

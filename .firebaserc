@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "auth-development-2a8a2"
-  }
+    "default": "myblog-bcfa7",
+    "Readhandy": "myblog-bcfa7"
+  },
+  "targets": {},
+  "etags": {}
 }

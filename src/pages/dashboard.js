@@ -16,11 +16,17 @@ import {
   IonInfiniteScroll,
   IonInfiniteScrollContent,
   IonToolbar,
-  useIonViewWillEnter,
+  useIonViewWillEnter, 
+  IonReactRouter,
+  IonTabs,
+  IonRouterOutlet,
+  ProtectedRoute
 } from "@ionic/react";
 import {
+  bookSharp,
   homeSharp,
   notificationsSharp,
+  pencilSharp,
   personSharp,
 } from "ionicons/icons";
 import { firebaseApp } from "../firebase";
@@ -525,29 +531,36 @@ const Dashboard = () => {
           ></IonInfiniteScrollContent>
         </IonInfiniteScroll>
       </IonContent>
+    <IonReactRouter>
+       <IonTabs>
+        <IonRouterOutlet>
+
+        </IonRouterOutlet>
+
       <IonTabBar color='dark'>
         <IonTabButton fill='clear' className='tab-color' >
-          <IonIcon icon={homeSharp} />
-          <IonLabel>
-            Home
-          </IonLabel>
+          <IonIcon icon={homeSharp}/>
+          <IonLabel> Home </IonLabel>
+        </IonTabButton>
+        <IonTabButton fill='clear' className='tab-color' >
+          <IonIcon icon={pencilSharp}/>
+          <IonLabel> upload </IonLabel>
+        </IonTabButton>
+        <IonTabButton fill='clear' className='tab-color' >
+          <IonIcon icon={bookSharp}/>
+          <IonLabel> News</IonLabel>
         </IonTabButton>
         <IonTabButton fill='clear' className='tab-color'>
-          <IonIcon icon={notificationsSharp}>
-          </IonIcon>
-          <IonLabel>
-            Notification
-          </IonLabel>
-        </IonTabButton>
+          <IonIcon icon={notificationsSharp}/>        
+          <IonLabel> Notification</IonLabel>  
+           </IonTabButton>
         <IonTabButton fill='clear' className='tab-color' href='/profile' >
-          <IonIcon icon={personSharp} >
-          </IonIcon>
-          <IonLabel>
-            Profile
-          </IonLabel>
+          <IonIcon icon={personSharp} /> 
+          <IonLabel> Profile  </IonLabel>
         </IonTabButton>
       </IonTabBar>
-
+      </IonTabs>
+      </IonReactRouter>
     </IonPage>
   );
 };

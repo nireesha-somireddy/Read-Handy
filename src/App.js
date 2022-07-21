@@ -33,11 +33,11 @@ import { useEffect, useState } from "react";
 import { doc, getDoc} from "firebase/firestore"; 
  import { db } from "./firebase.js";
 setupIonicReact();
+
 const App = () => {
   const [updateDetails, setUpdateDetails] = useState({});
   const [appVersion, setAppVersion] = useState("");
   const updateRef = doc(db,"Readhandy_app_config","fMYHFpvElK8oMFbLVbJE");
-
   const [presentAlert] = useIonAlert();
   const [present] = useIonToast();
   const handleToast = (msg) => {
