@@ -26,6 +26,7 @@
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
     "android": "^0.0.8",
+    "babel-jest": "^23.6.0",
     "cordova-plugin-native-spinner": "^1.1.4",
     "firebase": "^9.9.0",
     "ionicons": "^5.4.0",
