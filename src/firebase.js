@@ -1,9 +1,13 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import {doc ,getDoc}from "firebase/compat/firestore";
 import { getAuth, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
+
+// import { getFirestore } from "firebase/firestore";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDj2KRHKeur8jlg2FEtd5gJ7WdE7I2mexU",
@@ -16,8 +20,9 @@ const firebaseConfig = {
   };
   
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-export const ath = getAuth(firebaseApp);
+// export const auth = firebase.auth();
+export const db = firebase.firestore(firebaseApp);
+export const auth = getAuth(firebaseApp);
 const provider = new GoogleAuthProvider()
 export const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {

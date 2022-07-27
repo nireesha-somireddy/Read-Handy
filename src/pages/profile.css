@@ -1,0 +1,12 @@
+
+  .icon-align{
+    color:aliceblue;
+    display: flex;
+    margin: auto;
+    margin-right: 10px;
+  }
+  .profile-img{
+    display: flex;
+    margin: auto;
+   top:90px;
+  }

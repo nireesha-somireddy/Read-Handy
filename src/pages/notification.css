@@ -1,0 +1,20 @@
+.notifi-text{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    font-size: 20px;
+    color:aliceblue;
+}
+.trash-icon{
+    display: flex;
+    margin: auto;
+    color:aliceblue;
+    margin-right: 20px;
+    font-size: 20px;
+}
+.tabbar-bottom{
+    --background: #222428 !important;
+}
+.notification-page{
+    --background: #222428 !important;
+}

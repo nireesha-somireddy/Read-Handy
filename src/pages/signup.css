@@ -1,21 +1,51 @@
-#create{
-   margin-top: 35px;
-    text-align: center;
-    color:rgb(255, 254, 254);
+#crt-new-acc{
+  color: rgb(235, 69, 105);
+  font-size: 25px;
+  justify-content: center;
+  margin: auto;
+  display: flex;
+  font-weight: bold;
+}
+#create {
+  justify-content: center;
+  color: rgb(255, 254, 254);
+  margin: auto;
+  margin-top: 35px;
+  display: flex;
+  width: 190px;
+  background-color:  rgb(235, 69, 105);
+  border-radius: 10px;
 }
 
-.ion-content {
-    --background-color:rgb(248, 193, 193);
-    height: 69vh!important;
-  }
+.account {
+ margin: auto;
+ display: flex;
+ margin-top: 30px;
+ font-size: 15px;
+ color: rgb(255, 254, 254);
+}
 
-  .card{
-    -background:transparent;
-     box-shadow: none;
-    -webkit-box-shadow: none;
-    background-color:  rgb(253, 207, 207);
-  }
-
-  #text{
-    margin-top: 20px;
-  }
+.input-user{
+  color:black;
+  display: flex;
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.logo-cls{
+  margin: auto;
+  display: flex;
+  width: 110px;
+ margin-top: 50px;
+ margin-bottom: 10px;
+}
+#si-link{
+  color: rgb(235, 69, 105);
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 17px;
+}
+.ion-content-signup{
+  --background: #222428 !important;
+}

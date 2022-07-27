@@ -1,77 +1,122 @@
 .design {
-    color: aliceblue;
-    width: 140px;
-    height: 120px;
+    -background:transparent!important;
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important;
     border-radius: 10px;
-    margin-top: 3px;
-
+    display: flex; 
+    margin: auto;
+    background-color:  #222428;  
 }
-
-.dimg {
-    width: 190px;
-    height: 120px;
-}
-
-.d {
+#article{
+    color: rgb(235, 69, 105);
+    font-size: 30px;
+    font-weight: bold;
     display: flex;
-    position: relative;
+    margin: auto;
+    margin-top: 30px;
+    margin-left: 20px;
 }
-
-.limg {
-    width: 131px;
-    height: 131px;
-}
-
-.ctech {
-    width: 110px;
-    height: 80px;
-    margin-top: 9px;
-    border-radius: 5px;
-}
-
-.cfashion {
-    width: 110px;
-    height: 80px;
-    margin-top: 1px;
-    border-radius: 5px;
-}
-
-.timg {
-    width: 160px;
-    height: 100px;
-}
-
-.fimg {
-    width: 143px;
-    height: 80px;
-}
-
-.simg {
-    width: 116px;
-    height: 80px;
-}
-
-.psimg {
-    width: 160px;
-    height: 100px;
-}
-
 #font {
-    color: rgb(3, 3, 70);
+    color: rgb(235, 69, 105);
     text-align: left;
 }
 
-#cr {
-    margin-top: 28px;
-    text-align: left;
-    font-size: 15px;
+.tech-text{
+    font-size: 10px;
+    color:aliceblue
 }
+.tech{
+    font-size:large;
+    color: rgb(235, 69, 105) ;
+    font-weight:500;
+    font-size: 13px;
+}
+.tech-btn{
+    margin: auto;
+    margin-right: 20px;
+    font-size: 4px;
+    height: 10px;
+    display: flex;
+     width: 70px;
+}
+.card-cls{
+    -background:transparent!important;
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important; 
+    border-radius: 20px;
+    display: flex;
+    margin: auto; 
+    background-color: #26282b; 
+    margin-left: 20px; }
 
 .ion-content {
-
     --background: rgb(253, 207, 207);
-    text-align: left;
-    color:black;
+    color: black;
     height: 69vh !important;
+}
 
+
+
+#bar{
+    margin: auto;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#logout{
+    margin-left: 390px;
+}
+.tab-color{
+    font-size: 12px;
+    margin: auto;
+    color: rgb(235, 69, 105);
+    position: relative;
+    
+}
+
+#sports-text{
+    position: absolute;
+    color: aliceblue;
+    display: flex;
+    top:17px;
+    font-size: 20;
+    margin: auto;
+}
+.text-dash{
+    display: flex;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.like-comm-row{
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+}
+.text-name{
+    display: flex;
+    margin: auto;
+    font-size: 20px;
+    color: black;
+}
+.ver-icon{
+  display: flex;
+  margin: auto;
+  font-size: 30px;
+  color:#222428;
+  justify-content: end;
+  margin-right: 5px;
+}
+.image-dash-size{
+    display: flex;
+    margin: auto;
+    margin-left: 20PX;
+    margin-right: 20PX;
+}
+.avatar-img{
+    display: flex;
+    margin: auto;
+    margin-left: 15px;
 }

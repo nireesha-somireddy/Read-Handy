@@ -1,11 +1,17 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact,useIonAlert,useIonToast,isPlatform} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Login from './pages/login';
 import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
-
+import Tech from './pages/tech';
+import Profile from './pages/profile';
+import Notification from './pages/notification';
+import Data from './pages/data';
+import Fashion from './pages/fashion';
+import Sports from './pages/sports';
+// import { AuthContextProvider } from "./context/AuthContext";
 
 
 
@@ -27,10 +33,98 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+import { App as app } from "@capacitor/app";
+import { Browser } from "@capacitor/browser";
+import { useEffect, useState } from "react";
+import { collection, doc, getDoc, setDoc} from "firebase/firestore"; 
+//import { db } from './firebase';
+ import { db } from "./firebase.js";
 setupIonicReact();
+const App = () => {
+  const [updateDetails, setUpdateDetails] = useState({});
+  const [appVersion, setAppVersion] = useState("");
+  const updateRef = doc(db,"Readhandy_app_config","fMYHFpvElK8oMFbLVbJE");
 
-const App = () => (
+  const [presentAlert] = useIonAlert();
+  const [present] = useIonToast();
+  const handleToast = (msg) => {
+    present({
+      message: msg,
+      position: "top",
+      animated: true,
+      duration: 2000,
+      color: "dark3",
+      mode: "ios",
+    });
+  };
+  const handleAlert = (msg, title, btn, appVersion) => {
+    presentAlert({
+      header: title,
+      subHeader: `Version: ${appVersion}`,
+      message: msg,
+      buttons: [
+        {
+          text: btn,
+          role: "Download",
+          handler: async () => {
+            handleToast("Download Clicked");
+            await Browser.open({
+               url: "https://play.google.com/store/apps/details?id=com.readhandy.app",
+            });
+          },
+        },
+      ],
+      backdropDismiss: true,
+      translucent: true,
+      animated: true,
+      cssClass: "lp-sp-alert",
+    });
+  };
+
+  const getAppInfo = async () => {
+    let info = await app.getInfo();
+    return info;
+  };
+
+  const getConfigData = async () => {
+    const docSnap = await getDoc(updateRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      console.log("Document data:", docSnap.data());
+      setUpdateDetails(data.updateMsg);
+      setAppVersion(data.current);
+    } else {
+      console.log("No such document!");
+    }
+  };
+
+  const checkUpdate = async () => {
+    try {
+      if (isPlatform("android")) {
+        const currentAppInfo = getAppInfo();
+        if (appVersion > (await currentAppInfo).version) {
+          const msg = updateDetails.msg;
+          const title = updateDetails.title;
+          const btn = updateDetails.btn;
+          handleAlert(msg, title, btn, appVersion);
+        }
+      } 
+    } 
+  
+    catch (error) {
+    }
+  };
+
+  useEffect(() => {
+    getConfigData();
+    getAppInfo();
+    if (isPlatform("android")){
+    }
+  }, []);
+
+    checkUpdate();
+
+    return(
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
@@ -43,15 +137,35 @@ const App = () => (
         <Route exact path="/login">
           <Login />
         </Route>
-        <Route >
+        <Route exact path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route exact path="/notification">
+          <Notification />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+        <Route exact path="/data">
+          <Data />
+        </Route>
+        <Route exact path="/tech">
+          <Tech />
+        </Route>
+        <Route exact path="/fashion">
+          <Fashion/>
+        </Route>
+        <Route exact path="/sports">
+          <Sports/>
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
+       
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
-
+   );
+    }
+   
 export default App;
