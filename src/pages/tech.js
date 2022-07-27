@@ -1,108 +1,120 @@
 import {
-  IonCard,
-  IonCol,
   IonContent,
   IonGrid,
-  IonIcon,
+  IonRow,
+  IonCol,
   IonImg,
+  IonPage,
+  IonCard,
+  useIonRouter,
+  IonButton,
+  useIonToast,
+  IonTabBar,
+  IonLabel,
+  IonIcon,
+  IonTabButton,
   IonInfiniteScroll,
   IonInfiniteScrollContent,
-  IonPage,
-  IonRow,
-  useIonViewWillEnter,
-  IonToolbar
+  IonToolbar,
+  useIonViewWillEnter, IonText, IonAvatar
 } from "@ionic/react";
-import { cart, notifications } from "ionicons/icons";
-import "./Home.css";
-import "./tech.css"
-import { Data } from "../pages/techdata";
-import React,{ useState } from "react";
-import { LazyLoadImage } from "@dcasia/react-lazy-load-image-component-improved";
-import 'react-lazy-load-image-component/src/effects/blur.css';
-const Tech  = () => {
+import {
+  chatboxSharp,
+  heartDislikeCircle,
+  heartSharp,
+  homeSharp,
+  notificationsSharp,
+  personSharp,
+} from "ionicons/icons";
+import { data } from "./data";
+import { firebaseApp } from "C:/Users/SomireddyNireesha/figmadesignapp/readhandy/src/firebase.js";
+import React, { useState, useEffect } from 'react';
+import { db } from "C:/Users/SomireddyNireesha/figmadesignapp/readhandy/src/firebase.js";
+import { collection, getDocs, addDoc,auth} from "firebase/firestore";
+const Tech= () => {
+  const [data, setData] = useState('');
+  const [isInfiniteDisabled, setInfiniteDisabled] = useState('false');
+  const articlesRef = collection(db, "Users","tech");
+   const [article, setarticles] = useState([]);
+  const [userId, setUserId] = useState();
+  useEffect(() => {
+    getDocs(articlesRef)
+      .then((snapshot) => {
+        let articles = []
+        snapshot.docs.forEach((doc) => {
+          articles.push({ ...doc.data(), id: doc.id })
+        })
+        console.log(articles)
+        setarticles(articles);
+      })
+  },[]);
 
-  const [datas, setData] = useState([]);
-  const [isInfiniteDisabled, setInfiniteDisabled] = useState(false);
-
-  const pushData = () => {
-    const max = datas.length + 4;
-    const min = max - 4;
-   const newData = [];
- 
-   if(datas.length === 30){
-    setInfiniteDisabled(true);
-   }else{
-   for(let i = min;i < max;i++){
-  Data[i].id = Data[i].id + i*i;
-  newData.push(Data[i]);
-   }
-   
-    setData([
-      ...datas,
-      ...newData
-    ]);
-  }
-  }
-  const loadData = (ev) => {
-    console.log(datas.length);
-    setTimeout(() => {
-      pushData();
-      console.log('Loaded data');
-      ev.target.complete();
-      if(datas.length === 30){
-        setInfiniteDisabled(true);
-      }
-    }, 2000);
-  }
-  useIonViewWillEnter(() => {
-    pushData();
-  });
   return (
     <IonPage>
       <IonToolbar color='dark'>
-      <IonGrid>
-          <IonRow className="ion-justify-content-between">
-            <IonCol size="6" sizeSm="2" sizeMd="4">
-            <IonImg src="../assets/suplogo.jpg" className='img-logo'>{" "}</IonImg>
-            </IonCol>
-            <IonCol size="3" sizeSm="4" sizeMd="2">
-              <IonIcon icon={notifications} className="homeicon note"></IonIcon>
-              <IonIcon icon={cart} className="homeicon cart"></IonIcon>
-            </IonCol>
+        <IonGrid>
+          <IonRow >
+            <IonCol id="article">Read Handy</IonCol>
+          </IonRow>
+        
+          <IonRow id='bar'>
+            <IonCol>
+              <IonButton fill='clear' color="light" href="/data">All</IonButton></IonCol>
+            <IonCol> <IonButton  color="danger" href="/tech">Tech</IonButton></IonCol>
+            <IonCol> <IonButton fill='clear' color="light" href="/fashion">Fashion</IonButton> </IonCol>
+            <IonCol> <IonButton fill='clear' color="light" href="/sports">Sports</IonButton></IonCol>
           </IonRow>
         </IonGrid>
       </IonToolbar>
-      <IonContent fullscreen className="home" color='dark'>
+      <IonContent color='dark'>
         <IonGrid>
-          <IonRow>
-            For you
-          </IonRow>
-            {datas.map((data) => {
-              return (
-                <IonRow
-                  key={data.id}
-                >
-                    <IonCard className='card-size ion-margin'>
-                    <IonRow >
-                    <LazyLoadImage src={data.image} effect="blur" delayTime={300} placeholderSrc={process.env.PUBLIC_URL + "/assets/suplogo.jpg"} style={{margin: "auto"}} />
-                    {/* <IonImg src={data.image} className="img"></IonImg> */}
-                    </IonRow>
-                    <IonRow className="title-content">{data.Title}
-                    </IonRow>
-                    <IonRow>{data.Article}
-                    </IonRow>
-                     </IonCard>      
+        {article.map((tech) => {
+            return (
+              <IonCard  routerlink="/tech">
+                <IonRow key={tech.id}>
+                  <IonCol className="avatar-img" size="4">
+                    <IonAvatar >
+                    <IonImg src={tech.avatar} /></IonAvatar>
+                  </IonCol>
+                  <IonCol >
+                    <IonText className="text-name">
+                      {tech.name}
+                    </IonText></IonCol>
                 </IonRow>
-              );
-            })}
-          
-          <IonInfiniteScroll onIonInfinite={loadData} threshold="100px" disabled={isInfiniteDisabled}>
-            <IonInfiniteScrollContent loadingSpinner="bubbles" loadingText="Loading more data...">
-
-            </IonInfiniteScrollContent>
-          </IonInfiniteScroll>
+                <IonRow >
+                  <IonImg src={data.image} className="image-dash-size"/>
+                </IonRow>
+                <IonRow className="text-dash">
+                  <IonText className="sub-text">{tech.text}</IonText>
+                </IonRow>
+                <IonRow className="like-comm-row">
+                  <IonCol >
+                  <IonIcon style={{ color: "gray" }} icon={heartDislikeCircle}>
+                  </IonIcon>
+                  <IonLabel> 0 Likes</IonLabel></IonCol>
+                  <IonCol>
+                  <IonIcon style={{ color: "gray" }} icon={chatboxSharp}>
+                  </IonIcon><IonLabel> 0 Comments</IonLabel></IonCol>
+                </IonRow>
+              </IonCard>
+            )
+          })}
         </IonGrid>
       </IonContent>
+      <IonTabBar slot="bottom" className="tabbar-bottom">
+        <IonTabButton tab="tab1" href="/dashboard">
+          <IonIcon style={{ color: "rgb(235, 69, 105)" }} icon={homeSharp} />
+          <IonLabel style={{ color: "white" }}>Home</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="tab2" href="/notification">
+          <IonIcon style={{ color: "white" }} icon={notificationsSharp} />
+          <IonLabel style={{ color: "gray" }}>Notification</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="tab3" href="/profile">
+          <IonIcon style={{ color: "white" }} icon={personSharp} />
+          <IonLabel style={{ color: "gray" }}>Profile</IonLabel>
+        </IonTabButton>
+      </IonTabBar>
     </IonPage>
   );
 };

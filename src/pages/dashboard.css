@@ -7,6 +7,15 @@
     margin: auto;
     background-color:  #222428;  
 }
+#article{
+    color: rgb(235, 69, 105);
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    margin-left: 20px;
+}
 #font {
     color: rgb(235, 69, 105);
     text-align: left;
@@ -40,27 +49,13 @@
     background-color: #26282b; 
     margin-left: 20px; }
 
-#cr {
-    margin-top: 18px;
-    text-align: left;
-    font-size: 15px;
-    margin-left: 20px;
-}
-
 .ion-content {
     --background: rgb(253, 207, 207);
     color: black;
     height: 69vh !important;
 }
 
-#article{
-    color: rgb(235, 69, 105);
-    font-size: 25px;
-    justify-content: center;
-    display: flex;
-    margin: auto;
-    margin-top: 50px;
-}
+
 
 #bar{
     margin: auto;
@@ -71,9 +66,7 @@
 }
 
 #logout{
-     margin: auto;
-    display: flex;
-margin-right: 20px;
+    margin-left: 390px;
 }
 .tab-color{
     font-size: 12px;
@@ -82,10 +75,48 @@ margin-right: 20px;
     position: relative;
     
 }
-.design-text{
+
+#sports-text{
     position: absolute;
-    top:10px;
     color: aliceblue;
     display: flex;
-
+    top:17px;
+    font-size: 20;
+    margin: auto;
+}
+.text-dash{
+    display: flex;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.like-comm-row{
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+}
+.text-name{
+    display: flex;
+    margin: auto;
+    font-size: 20px;
+    color: black;
+}
+.ver-icon{
+  display: flex;
+  margin: auto;
+  font-size: 30px;
+  color:#222428;
+  justify-content: end;
+  margin-right: 5px;
+}
+.image-dash-size{
+    display: flex;
+    margin: auto;
+    margin-left: 20PX;
+    margin-right: 20PX;
+}
+.avatar-img{
+    display: flex;
+    margin: auto;
+    margin-left: 15px;
 }

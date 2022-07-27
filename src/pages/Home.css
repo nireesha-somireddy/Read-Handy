@@ -1,4 +1,5 @@
-.ion-content{
+.ion-content {
+    --background: #222428 !important;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -9,31 +10,44 @@
 
 #btn1 {
     display: flex;
-    margin:auto;
-    margin-top: 12px;
+    margin: auto;
+    margin-top: 20px;
+    background-color:rgb(235, 69, 105);
+    color: aliceblue;
+    border-radius: 10px;
 }
 
-.homeimg{
+.homeimg {
     margin: auto;
     display: flex;
     width: 165px;
-   margin-top: 180px;
-   margin-bottom: 10px;
+    margin-top: 180px;
+    margin-bottom: 10px;
 }
-.wel{
+
+.wel {
     display: flex;
     justify-content: center;
-    margin:auto;
+    margin: auto;
     color: white;
-    font-size: 25px;
-    margin-top: 15px;
+    font-size: 30px;
+    margin-top: 20px;
 }
-.title{
+
+.title {
     display: flex;
     justify-content: center;
-    margin:auto;
+    margin: auto;
     font-size: 33px;
     font-weight: 500;
     color: white;
 }
 
+.text-edu {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+}

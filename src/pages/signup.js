@@ -1,7 +1,9 @@
 import { IonContent, IonHeader, IonPage, IonImg, useIonToast, IonInput,IonGrid,IonRow,  IonButton,  IonLabel, useIonRouter, useIonLoading} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import { useState, useEffect } from "react";
+import { firebaseApp } from "C:/Users/SomireddyNireesha/figmadesignapp/readhandy/src/firebase.js";
 import { signInWithGoogle, sigInWithFacebook } from '../firebase';
+import { db } from "C:/Users/SomireddyNireesha/figmadesignapp/readhandy/src/firebase.js";
 import firebase from 'firebase/compat/app';
 import { Link } from "react-router-dom";
 import './signup.css';
@@ -75,6 +77,12 @@ const Signup = () => {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password, repeatpassword)
+        .then((credentials) => {
+          console.log(credentials);
+          db.collection("Users").doc(credentials.user.uid).set({
+            Email: email,
+            password: password,
+          })})
         .then(() => {
           dismiss();
           router.push("/dashboard");
@@ -84,18 +92,6 @@ const Signup = () => {
           handleToast(" You have Registered successfully");
         })
 
-
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => { 
-      dismiss();
-      router.push("/login") 
-    })
-    .then(() => {
-      dismiss();
-      handleToast(" Account successfully Created");
-
-    })
       .catch((err) => {
         switch (err.code) {
           case "auth/email-already-in-use":
@@ -114,19 +110,18 @@ const Signup = () => {
         clearInputs();
       }
     };
-    
+
+
+
   return (
     <IonPage>
-      <IonContent color='dark' >
-        <IonHeader collapse="condense">
-        </IonHeader>
-        <ExploreContainer />
+      <IonContent className="ion-content-signup" >
         <IonGrid>
-        <IonRow>
-        <IonImg src="../assets/suplogo.jpg" className='logo-cls'>{" "}</IonImg>
+        <IonRow className='logo-cls'>
+        <IonImg src="../assets/suplogo.jpg" ></IonImg>
         </IonRow>
-          <IonRow>
-            <h1 id='crt-new-acc'><b> Create new account</b></h1>
+          <IonRow id='crt-new-acc'>
+             Create new account
            </IonRow>
            <IonRow className='input-user'>
               <IonInput class="input" type="text" value={name}  placeholder="Full Name" onIonChange={(e) => setName(e.detail.value)} />
@@ -144,7 +139,7 @@ const Signup = () => {
           <IonLabel className="errorMsg">{PassswordError}</IonLabel>
            </IonRow>
            <IonRow >
-          <IonButton onClick={handleSignup} color='danger'  id='create'> Create Account</IonButton><br />
+          <IonButton onClick={handleSignup} fill='clear'  id='create'> Create Account</IonButton><br />
         
           </IonRow>
           <IonRow>

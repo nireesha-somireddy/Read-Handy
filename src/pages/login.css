@@ -2,10 +2,10 @@
 #txt-wel-back{
     color: rgb(235, 69, 105);
     font-size: 25px;
+    font-weight: bold;
     justify-content: center;
     display: flex;
     margin: auto;
-   
 }
 
 .input {
@@ -14,8 +14,8 @@
     border-radius: 10px;
     padding: 20px;
     margin-top: 10px;
-    background-color: white;
-    color: black;
+    --background: #eaecf1 !important;
+  color:black;
     display: flex;
 }
 
@@ -25,18 +25,20 @@
     border-radius: 10px;
     padding: 40px;
     margin-top: 20px;
-    background-color: white;
+    --background: #eaecf1 !important;
     color: black;
     display: flex;
 }
 
 #signin {
+    background-color: rgb(235, 69, 105);
     display: flex;
     width: 200px;
     margin: auto;
     margin-top: 18px;
     justify-content: center;
     color: rgb(255, 254, 254);
+    border-radius: 10px;
   }
  
 
@@ -68,6 +70,7 @@
     display: flex;
     margin: auto;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .input-login{
@@ -77,9 +80,8 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 5px ;
+ 
 }
-
-
 #account {
     margin-top: 40px;
     display: flex;
@@ -107,15 +109,17 @@
   margin-left: 20px;
    margin-top: 20px;
     display: flex;
+    color: rgb(255, 247, 247);
 }
 
-#text2{
+
+.text2{
     display: flex;
     margin: auto;
     margin-top: 10px;
     margin-left: 20px;
     margin-top: 10px;
-   
+    color: rgb(255, 247, 247);
 }
 .errorMsg{
     color:rgb(202, 205, 207);
@@ -124,8 +128,8 @@
     margin: auto;
     display: flex;
     width: 110px;
-   margin-top: 60px;
-   margin-bottom: 25px;
+    margin-top: 60px;
+    margin-bottom: 5px;
 }
 #si-in-link{
     color: rgb(235, 69, 105);
@@ -153,4 +157,8 @@
     margin: auto;
     display: flex;
     margin-top: 30px;
+}
+.content-page-login{
+    --background: #222428 !important;
+   
 }

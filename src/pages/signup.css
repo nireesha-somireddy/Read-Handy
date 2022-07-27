@@ -4,6 +4,7 @@
   justify-content: center;
   margin: auto;
   display: flex;
+  font-weight: bold;
 }
 #create {
   justify-content: center;
@@ -12,6 +13,8 @@
   margin-top: 35px;
   display: flex;
   width: 190px;
+  background-color:  rgb(235, 69, 105);
+  border-radius: 10px;
 }
 
 .account {
@@ -19,6 +22,7 @@
  display: flex;
  margin-top: 30px;
  font-size: 15px;
+ color: rgb(255, 254, 254);
 }
 
 .input-user{
@@ -34,7 +38,7 @@
   display: flex;
   width: 110px;
  margin-top: 50px;
- margin-bottom: 30px;
+ margin-bottom: 10px;
 }
 #si-link{
   color: rgb(235, 69, 105);
@@ -42,4 +46,6 @@
   text-decoration: none;
   font-size: 17px;
 }
-
+.ion-content-signup{
+  --background: #222428 !important;
+}

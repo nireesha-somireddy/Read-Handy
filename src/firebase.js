@@ -5,6 +5,7 @@ import {doc ,getDoc}from "firebase/compat/firestore";
 import { getAuth, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
+
 // import { getFirestore } from "firebase/firestore";
 
 
@@ -19,9 +20,9 @@ const firebaseConfig = {
   };
   
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+// export const auth = firebase.auth();
 export const db = firebase.firestore(firebaseApp);
-export const ath = getAuth(firebaseApp);
+export const auth = getAuth(firebaseApp);
 const provider = new GoogleAuthProvider()
 export const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {

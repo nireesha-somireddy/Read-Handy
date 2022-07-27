@@ -1,17 +1,26 @@
 import {
-    IonButton,
     IonCard,
     IonCol,
     IonContent,
     IonGrid,
     IonIcon,
-    IonImg,
-    IonInput,
+    IonTabBar,
+    IonTabButton,
     IonLabel,
     IonPage,
     IonRow,
+    IonToolbar,
+    IonInput,
+    IonButton,
+    IonAvatar,
+    IonImg
   
   } from "@ionic/react";
+  import {
+    homeSharp,
+    notificationsSharp,
+    personSharp,
+  } from "ionicons/icons";
   import {
     qrCodeOutline,
     atOutline,
@@ -24,74 +33,83 @@ import {
   const Profile = () => {
     return (
       <IonPage>
-        <IonContent fullscreen className="profile-page">
-          <IonCard className="chats-header" lines="none">
-            <IonLabel className="profile-heading">My Profile</IonLabel>
+          <IonToolbar color="dark">
+          <IonGrid>
+          <IonCard color="dark" >
+          <IonRow>
+            <IonCol>
+            <IonLabel >Profile Details</IonLabel></IonCol>
             <IonIcon
               icon={qrCodeOutline}
-              className="chats-vertical-dots"
+              className="icon-align"
               size="large"
-              color="white"
-            />
+            />  </IonRow>
           </IonCard>
-          <IonCard className="pro-pic-container">
-            <IonImg src="assets/images/profile-pic.jpg" />
-          </IonCard>
-          <IonGrid className="profile-details">
-              <IonRow className="row">
-                <IonLabel className="Profile-name"></IonLabel>
-                <IonImg
-                  src="assets/icon/Edit.svg"
-                  className="edit-icon"
-                />
-              </IonRow>
-            <IonRow className="flex-row">
-              <IonCol className="col1">
-                <IonLabel className="flex-row-label">Email Address</IonLabel>
-                <IonLabel className="flex-row-value">
-                  <IonIcon icon={atOutline} />
-               
-                </IonLabel>
-              </IonCol>
-            </IonRow>
-            <IonRow className="flex-row">
-              <IonCol className="col1">
-                <IonLabel className="flex-row-label">Phone Number</IonLabel>
-                <IonLabel className="flex-row-value">
-                  <IonIcon icon={callOutline} />
-                  +91-9999999999
-                </IonLabel>
-              </IonCol>
-            </IonRow>
-            <IonRow className="flex-row">
-              <IonCol className="col1">
-                <IonLabel className="flex-row-label">Password</IonLabel>
-                <IonLabel className="flex-row-value">
-                  <IonIcon icon={lockClosedOutline} />
-                  ********
-                </IonLabel>
-              </IonCol>
-            </IonRow>
-            <IonRow className="flex-row">
-              <IonCol className="col1">
-                <IonLabel className="flex-row-label">Date of Birth</IonLabel>
-                <IonLabel className="flex-row-value">
-                  <IonIcon icon={calendarNumberOutline} />
-                  DD-MON-19XX
-                </IonLabel>
-              </IonCol>
-            </IonRow>
-            <IonRow className="flex-row">
-              <IonCol className="col1">
-                <IonLabel className="flex-row-label">About</IonLabel>
-                <IonLabel className="flex-row-value">
-                  <IonIcon icon={informationCircleOutline} />
-                  Hi, this is about me!
-                </IonLabel>
-              </IonCol>
-            </IonRow>
+          </IonGrid>
+          </IonToolbar>
+          <IonContent color="dark">
+          <IonGrid>
+     
+           {/* <IonRow className='input-user'>
+           <IonInput class="input" placeholder="Full Name"  />
+          </IonRow>
+          <IonRow className='input-user'>
+          <IonInput class="input" placeholder="Email address"  />
+          </IonRow>
+          <IonRow className='input-user'>
+          <IonInput class="input" type="password" placeholder="Password" />
+           </IonRow>
+           <IonRow className='input-user'>
+          <IonInput class="input" type="password" placeholder="Mobile Number" />
+           </IonRow>
+           <IonRow >
+          <IonButton  color='danger'  id='create'>Change</IonButton><br />
+        
+          </IonRow> */}
+          <IonRow>
+            <IonCol/>
+                 <IonCol>
+                        <IonRow> <IonCol>0</IonCol></IonRow>
+                        <IonRow> Followers </IonRow>
+                 </IonCol>
+                 <IonCol> 
+                  <IonRow>
+          <IonAvatar>
+            <IonImg  src="./assets/technology.jpg" > </IonImg>
+          </IonAvatar>  </IonRow> 
+          <IonRow><IonLabel> User Name</IonLabel>  </IonRow>
+          </IonCol>
+                 <IonCol>
+                 <IonRow> <IonCol>0</IonCol></IonRow>
+                         <IonRow>Following</IonRow> </IonCol>
+                 <IonCol/>  
+          </IonRow>
+          <IonRow>
+            <IonButton fill='clear'>  Edit profile  </IonButton>
+          </IonRow>
+          <IonRow/>
+          <IonCard color="dark">
+          <IonRow>
+              <IonCol> Posts(0) </IonCol>
+              <IonCol> Likes(0)</IonCol>     
+              <IonCol> BookMarked</IonCol>        
+          </IonRow></IonCard>
           </IonGrid>
         </IonContent>
+        <IonTabBar slot="bottom" className="tabbar-bottom" color="dark">
+<IonTabButton tab="tab1" href="/dashboard">
+  <IonIcon style={{ color: "white" }} icon={homeSharp} />
+  <IonLabel style={{ color: "gray" }}>Home</IonLabel>
+</IonTabButton>
+<IonTabButton tab="tab2" href="/notification">
+  <IonIcon style={{ color: "white" }} icon={notificationsSharp} />
+  <IonLabel style={{ color: "gray" }} >Notification</IonLabel>
+</IonTabButton>
+<IonTabButton tab="tab3" href="/profile">
+  <IonIcon style={{ color: "rgb(235, 69, 105)" }} icon={personSharp} />
+  <IonLabel style={{ color: "white" }}>Profile</IonLabel>
+</IonTabButton>
+</IonTabBar>    
       </IonPage>
     );
   };

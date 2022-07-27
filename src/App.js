@@ -6,8 +6,11 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
 import Tech from './pages/tech';
-import techdata from './pages/techdata';
 import Profile from './pages/profile';
+import Notification from './pages/notification';
+import Data from './pages/data';
+import Fashion from './pages/fashion';
+import Sports from './pages/sports';
 // import { AuthContextProvider } from "./context/AuthContext";
 
 
@@ -137,11 +140,23 @@ const App = () => {
         <Route exact path="/dashboard">
           <Dashboard />
         </Route>
-        <Route exact path="/tech">
-          <Tech />
+        <Route exact path="/notification">
+          <Notification />
         </Route>
         <Route exact path="/profile">
           <Profile />
+        </Route>
+        <Route exact path="/data">
+          <Data />
+        </Route>
+        <Route exact path="/tech">
+          <Tech />
+        </Route>
+        <Route exact path="/fashion">
+          <Fashion/>
+        </Route>
+        <Route exact path="/sports">
+          <Sports/>
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
